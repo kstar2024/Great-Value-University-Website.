@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Application - Great Value Academy</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 50px 20px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        .card p {
+            font-size: 1em;
+            margin: 10px 0;
+        }
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<nav class="main-nav">
+    <ul>
+        <li><a href="admissions.html">Home</a></li>
+    </ul>
+  </nav>
+<body>
+
+<div class="header">
+    <h1>Online Application</h1>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h2>Apply for Admission</h2>
+        <p>Start your journey with us today. Click below to begin the application process.</p>
+        <div class="button" onclick="applyNow()">Apply Now</div>
+    </div>
+    <div class="card">
+        <h2>Request Information</h2>
+        <p>Have questions? Click below to request more information about our school.</p>
+        <div class="button" onclick="requestInfo()">Request Info</div>
+    </div>
+    <div class="card">
+        <h2>Registration of Interest</h2>
+        <p>Let us know you're interested in joining our community. Click below to register your interest.</p>
+        <div class="button" onclick="registerInterest()">Register Interest</div>
+    </div>
+</div>
+
+<script>
+    function applyNow() {
+        alert("Apply Now button clicked! Redirecting to application form...");
+        // Replace with actual URL for application form
+        window.location.href = "https://example.com/apply";
+    }
+
+    function requestInfo() {
+        alert("Request Info button clicked! Redirecting to information request form...");
+        // Replace with actual URL for information request form
+        window.location.href = "https://example.com/request-info";
+    }
+
+    function registerInterest() {
+        alert("Register Interest button clicked! Redirecting to registration form...");
+        // Replace with actual URL for registration of interest form
+        window.location.href = "https://example.com/register-interest";
+    }
+</script>
+
+</body>
+</html>

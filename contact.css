@@ -45,20 +45,17 @@ body {
   /*
   CHALLENGE: change the background to one you like
   */
-  --background-image:url(Academy_School_Building.jpg);
+  --background-image: var(--forest);
   
   /*
   CHALLENGE: change the main color to one you like!
   */
-  --main-color: var(--candy);
-  
-  
+  --main-color: var(--snow);
   
    /* 
   CHALLENGE: change the font to one you think is cool
   */
   font-family: var(--simple-font);
-  
 }
 
 
@@ -66,7 +63,7 @@ body {
   /* 
   BONUS CHALLENGE: adjust how many columns you'd like to have
   */
- column-count: 4;
+ column-count: 2;
  column-gap: 10px;
 }
 
@@ -86,7 +83,9 @@ body {
   background: var(--background-image) no-repeat center center fixed;
   background-size: cover;
   color: var(--main-color);
-  }
+}
+
+
 
 
 .marquee-container {
@@ -94,7 +93,28 @@ body {
   white-space: nowrap;
   box-sizing: border-box;
   width: 100%; /* Adjust as needed */
-  background: rgba(51, 51, 51, 0.8); /* Semi-transparent background to ensure text is readable */
+  background: #333; /* Background color */
+  color: #fff; /* Text color */
+  padding: 10px;
+}
+
+.marquee {
+  display: inline-block;
+  padding-left: 100%; /* Push the text outside the container */
+  animation: marquee 15s linear infinite;
+}
+
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  width: 100%; /* Adjust as needed */
+  background: #333; /* Background color */
   color: #fff; /* Text color */
   padding: 10px;
 }
@@ -110,22 +130,30 @@ body {
   100% { transform: translateX(-100%); }
 }
 
-header {
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color:bisque;
+}
 
-  color: whitesmoke;
+header {
+  background: color #f8f9f8;;
+  color: #fff;
   padding: 0.1px 0;
   text-align: center;
 }
 
 header .logo {
   width: 150px;
-  display: block;
+  display:block;
   margin: 0 auto;
+
 }
 
 nav {
-  background-color: rgba(0, 100, 0, 0.8);
-  color:whitesmoke;
+  background-color:darkgreen;
+  color: #fff;
   text-align: center;
   padding: 0.5em 0;
 }
@@ -142,44 +170,78 @@ nav ul li {
 }
 
 nav ul li a {
-  color:#fff;
+  color: #fff;
 }
 
 main {
   padding: 10px;
   text-align: center;
-  font-size: x-large;
-  
+
 }
 
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color:#B8AED6s;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 h1, h2 {
-  color: var(--main-color);
+  color: #333;
 }
 
 .header-content {
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .header-text {
-  max-width: 80%;
+  max-width: 60%;
 }
 
 .header-text h1 {
   margin: 0;
-  font-size: 3.0em;
-  color:#228B22;
+  font-size: 2.5em;
+  color: #333;
 }
 
 .header-text .motto {
   margin: 10px 0 0;
-  font-size: 1.9em;
+  font-size: 1.2em;
   color: #555;
   font-weight: bolder;
-  font-family: var(--simple-font);
+  font-family:' 'Lucida Grande', 'Lucida Sans';
 }
 
 .header-image img {
@@ -188,18 +250,19 @@ h1, h2 {
 }
 
 .footer {
-  background-image: var(--forest);
+  background-color: #333;
   color: white;
   padding: 20px 0;
   position: relative;
   bottom: 0;
   width: 100%;
+  
 }
 
 .footer-content {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  display:flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
   padding: 20px;
 }
 
@@ -215,6 +278,7 @@ h1, h2 {
   padding-bottom: 10px;
   margin-bottom: 10px;
   color: greenyellow;
+  
 }
 
 .footer-section p {
@@ -237,10 +301,6 @@ h1, h2 {
   font-size: 0.9em;
 }
 
-.map {
-  height: 400px;
-  width: 100%;
-}
 
 .blink {
   animation: blinker 1s linear infinite;
@@ -250,72 +310,10 @@ h1, h2 {
 @keyframes blinker {  
   50% { opacity: 0; }
 }
-
 .header-nav {
   display: flex;
   justify-content: space-between;
   padding: 0 10px;
-  background-color: white;
-}
-
-
-
-.container {
-  background-color: white;
-  padding: 20px;
-  max: width 100%;;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  background-color:white;
   
-}
-
-
-
-
-
-h1, h2 {
-  color: #4CAF50;
-}
-
-.introduction, .covid-adaptation, .logos {
-  margin-bottom: 20px;
-}
-
-p {
-  line-height: 1.6;
-}
-
-.logos img {
-  width: 100px;
-  height: auto;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.logos img:last-child {
-  margin-right: 0;
-}
-
-.logo-info {
-  padding: 20px;
-  border: 1px solid #ddd;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
-}
-
-.logo-info h2 {
-  margin-top: 0;
-}
-
-.hidden {
-  display: none;
-}
-
-.visible {
-  display: block;
 }

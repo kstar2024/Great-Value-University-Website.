@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Management - Great Value Academy</title>
+    <link rel="stylesheet" href="events.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Events List Page -->
+        <div id="events-list-page" class="page">
+            <h1>Events List</h1>
+            <ul id="events-list"></ul>
+            <button onclick="showCreateEventPage()">Create Event</button>
+        </div>
+        
+        <!-- Create Event Page -->
+        <div id="create-event-page" class="page" style="display:none;">
+            <h1>Create Event</h1>
+            <input type="text" id="event-title" placeholder="Event Title">
+            <input type="date" id="event-date" placeholder="Event Date">
+            <textarea id="event-description" placeholder="Event Description"></textarea>
+            <button onclick="createEvent()">Create Event</button>
+            <button onclick="showEventsListPage()">Back to Events List</button>
+        </div>
+        
+        <!-- Event Details Page -->
+        <div id="event-details-page" class="page" style="display:none;">
+            <h1>Event Details</h1>
+            <div id="event-details"></div>
+            <button onclick="showEventsListPage()">Back to Events List</button>
+        </div>
+    </div>
+    <script src="events.js"></script>
+</body>
+</html>

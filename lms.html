@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Value Academy LMS</title>
+    <link rel="stylesheet" href="lms.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Page -->
+        <div id="login-page" class="page">
+            <h1>Login</h1>
+            <input type="email" id="email" placeholder="Email">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+        </div>
+        
+        <!-- Course List Page -->
+        <div id="course-list-page" class="page" style="display:none;">
+            <h1>Course List</h1>
+            <ul id="course-list"></ul>
+            <button onclick="showCreateCoursePage()">Create Course</button>
+        </div>
+        
+        <!-- Create Course Page -->
+        <div id="create-course-page" class="page" style="display:none;">
+            <h1>Create Course</h1>
+            <input type="text" id="course-title" placeholder="Course Title">
+            <textarea id="course-description" placeholder="Course Description"></textarea>
+            <button onclick="createCourse()">Create Course</button>
+            <button onclick="showCourseListPage()">Back to Course List</button>
+        </div>
+    </div>
+    <script src="lms.js"></script>
+</body>
+</html>

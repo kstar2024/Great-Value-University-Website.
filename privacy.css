@@ -1,0 +1,121 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header Styles */
+header {
+  background: #35424a;
+  color: #ffffff;
+  padding: 10px 0;
+}
+
+header nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+header nav ul li {
+  margin: 0 15px;
+}
+
+header nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content Styles */
+main {
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #35424a;
+}
+
+.privacy-policy {
+  background: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+p, ul {
+  margin-bottom: 15px;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+/* Address Styles */
+address {
+  font-style: normal;
+  line-height: 1.5;
+  margin-top: 20px;
+}
+
+/* Footer Styles */
+footer {
+  background: #35424a;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+}
+
+footer nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+footer nav ul li {
+  margin: 0 15px;
+}
+
+footer nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+footer nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  header nav ul {
+      flex-direction: column;
+  }
+
+  footer nav ul {
+      flex-direction: column;
+  }
+
+  header nav ul li, footer nav ul li {
+      margin: 5px 0;
+  }
+}

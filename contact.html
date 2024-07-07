@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Value Academy School</title>
+    <link rel="stylesheet"  type = "text/css "href="contact.css">
+</head>
+<body>
+    <header>
+        <ul>
+          <header class="header">
+            <div class="header-nav">
+              <br>
+              <br>
+              <br>
+            <li><a href="universityweb.html">Call:+254791848737/+254102606710</a></li>
+            <li><a href="email.html">Email :info@gvc.ac.ke</a></li>
+            <li><a href="staff portal.html">Staff Portal</a></li>
+            <li><a href="student portal.html">Student Portal</a></li>
+            <li><a href="tenders.html">Tenders</a></li>
+            <li><a href="reach us on.html">Reach Us on : Facebook Twitter  LinkedIn Whasapp Instagram</a></li>
+            </div>
+        </ul>
+      </header>
+    <header>
+        <header class="header">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Great Value Academy School</h1>
+                    <p class="motto">"Home of Innovation and Technological Ideas"</p>
+                </div>
+                <div class="header-image">
+                    <img src="Grea.png" alt="Academy logo">
+                </div>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+              <li><a href="academyweb.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="admissions.html">Admissions</a></li>
+              <li><a href="academics.html">Academics</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="events.html"> Events </a></li>
+              <li><a href="#news">News Announcements</a></li>
+              <li><a href="adm portal.html" class="blink">Admission Portal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="contact-us">
+        <h1>Contact Us</h1>
+        <form>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone_number">phone number:</label>
+                <input type="phone_number" id="phone number" name="phone_number" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+    <!-- EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        emailjs.init("e1UMcON0EB8g_kNaW"); // Replace with your EmailJS user ID
+    })();
+</script>
+
+<script type="text/javascript">
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Create the email parameters
+        const emailParams = {
+            from_name: this.from_name.value,
+            from_email: this.from_email.value,
+            phone_number: this.phone_number.value,
+            message: this.message.value,
+            reply_to: this.from_email.value // Set the reply-to email
+        };
+
+        emailjs.send('service_kie403j', 'template_owo79wr', emailParams)
+            .then(function() {
+                alert('Thank you for contacting us!');
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                console.log('FAILED...', error);
+                alert('An error occurred. Please try again.');
+            });
+    });
+</script>
+    <footer>
+        <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+    </footer>
+
+    <script src="contact.js"></script>
+</body>
+</html>
+<body>
+   
+</body>
+</html>

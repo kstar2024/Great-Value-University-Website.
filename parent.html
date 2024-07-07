@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parents Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        .search-form input {
+            width: calc(100% - 120px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .search-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .search-form button:hover {
+            background-color: #45a049;
+        }
+        .feedback-form input, .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .feedback-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .feedback-form button:hover {
+            background-color: #45a049;
+        }
+        .resource-list ul, .homework-list ul, .grade-list ul, .calendar-list ul, .notification-list ul, .timetable-list ul, .book-status-list ul, .extracurricular-list ul, .health-record-list ul, .behavior-report-list ul, .achievement-list ul, .volunteer-list ul, .announcement-archive-list ul, .deadline-list ul, .policy-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .resource-list ul li, .homework-list ul li, .grade-list ul li, .calendar-list ul li, .notification-list ul li, .timetable-list ul li, .book-status-list ul li, .extracurricular-list ul li, .health-record-list ul li, .behavior-report-list ul li, .achievement-list ul li, .volunteer-list ul li, .announcement-archive-list ul li, .deadline-list ul li, .policy-list ul li {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .timetable-table, .book-status-table, .health-record-table, .behavior-report-table, .achievement-table, .volunteer-list-table, .announcement-archive-table, .deadline-list-table, .policy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        .timetable-table th, .book-status-table th, .health-record-table th, .behavior-report-table th, .achievement-table th, .volunteer-list-table th, .announcement-archive-table th, .deadline-list-table th, .policy-table th, .timetable-table td, .book-status-table td, .health-record-table td, .behavior-report-table td, .achievement-table td, .volunteer-list-table td, .announcement-archive-table td, .deadline-list-table td, .policy-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .timetable-table th, .book-status-table th, .health-record-table th, .behavior-report-table th, .achievement-table th, .volunteer-list-table th, .announcement-archive-table th, .deadline-list-table th, .policy-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to the Parents Portal</h1>
+    </div>
+    <div class="container">
+        <!-- Search Feature -->
+        <div class="card">
+            <h2>Search for Student Information</h2>
+            <form class="search-form" id="searchForm">
+                <input type="text" id="studentNameOrId" placeholder="Enter student name or ID..." />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <!-- Student Information -->
+        <div class="card hidden" id="studentInfo">
+            <h2>Student Information</h2>
+            <p>Name: <span id="studentNameDisplay"></span></p>
+            <p>Grade: <span id="studentGradeDisplay"></span></p>
+            <p>Class: <span id="studentClassDisplay"></span></p>
+        </div>
+        <!-- Attendance Records -->
+        <div class="card hidden" id="attendanceRecords">
+            <h2>Attendance Records</h2>
+            <table class="attendance-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceList"></tbody>
+            </table>
+        </div>
+        <!-- Recent Activities -->
+        <div class="card hidden" id="recentActivities">
+            <h2>Recent Activities</h2>
+            <ul id="recentActivitiesList"></ul>
+        </div>
+        <!-- Upcoming Events -->
+        <div class="card hidden" id="upcomingEvents">
+            <h2>Upcoming Events</h2>
+            <ul id="upcomingEventsList"></ul>
+        </div>
+        <!-- Announcements -->
+        <div class="card hidden" id="announcements">
+            <h2>Announcements</h2>
+            <p id="announcementContent"></p>
+        </div>
+        <!-- Grade Report -->
+        <div class="card hidden" id="gradeReport">
+            <h2>Grade Report</h2>
+            <table class="grade-table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Grade</th>
+                        <th>Comments</th>
+                    </tr>
+                </thead>
+                <tbody id="gradeList"></tbody>
+            </table>
+        </div>
+        <!-- Homework Assignments -->
+        <div class="card hidden" id="homeworkAssignments">
+            <h2>Homework Assignments</h2>
+            <ul id="homeworkList"></ul>
+        </div>
+        <!-- School Calendar -->
+        <div class="card hidden" id="schoolCalendar">
+            <h2>School Calendar</h2>
+            <ul id="calendarList"></ul>
+        </div>
+        <!-- Library Book Status -->
+        <div class="card hidden" id="bookStatus">
+            <h2>Library Book Status</h2>
+            <table class="book-status-table">
+                <thead>
+                    <tr>
+                        <th>Book Title</th>
+                        <th>Author</th>
+                        <th>Status</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody id="bookStatusList"></tbody>
+            </table>
+        </div>
+        <!-- Extracurricular Activities -->
+        <div class="card hidden" id="extracurricularActivities">
+            <h2>Extracurricular Activities</h2>
+            <ul id="extracurricularList"></ul>
+        </div>
+        <!-- Notifications -->
+        <div class="card hidden" id="notifications">
+            <h2>Notifications</h2>
+            <ul id="notificationList"></ul>
+        </div>
+        <!-- Health Records -->
+        <div class="card hidden" id="healthRecords">
+            <h2>Health Records</h2>
+            <table class="health-record-table">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Health Issue</th>
+                        <th>Treatment</th>
+                        <th>Follow-Up Date</th>
+                    </tr>
+                </thead>
+                <tbody id="healthRecordList"></tbody>
+            </table>
+        </div>
+        <!-- Student Behavior Reports -->
+        <div class="card hidden" id="behaviorReports">
+            <h2>Student Behavior Reports</h2>
+            <table class="behavior-report-table">
+                <thead
+                <thead>
+                  <tr>
+                      <th>Date</th>
+                      <th>Incident</th>
+                      <th>Action Taken</th>
+                      <th>Comments</th>
+                  </tr>
+              </thead>
+              <tbody id="behaviorReportList"></tbody>
+          </table>
+      </div>
+      <!-- Achievements -->
+      <div class="card hidden" id="achievements">
+          <h2>Achievements</h2>
+          <ul id="achievementList"></ul>
+      </div>
+      <!-- Volunteer Work -->
+      <div class="card hidden" id="volunteerWork">
+          <h2>Volunteer Work</h2>
+          <ul id="volunteerList"></ul>
+      </div>
+      <!-- Announcement Archive -->
+      <div class="card hidden" id="announcementArchive">
+          <h2>Announcement Archive</h2>
+          <table class="announcement-archive-table">
+              <thead>
+                  <tr>
+                      <th>Date</th>
+                      <th>Announcement</th>
+                  </tr>
+              </thead>
+              <tbody id="announcementArchiveList"></tbody>
+          </table>
+      </div>
+      <!-- Deadlines -->
+      <div class="card hidden" id="deadlines">
+          <h2>Deadlines</h2>
+          <table class="deadline-list-table">
+              <thead>
+                  <tr>
+                      <th>Assignment</th>
+                      <th>Due Date</th>
+                  </tr>
+              </thead>
+              <tbody id="deadlineList"></tbody>
+          </table>
+      </div>
+      <!-- School Policies -->
+      <div class="card hidden" id="schoolPolicies">
+          <h2>School Policies</h2>
+          <ul id="policyList"></ul>
+      </div>
+      <!-- Feedback Form -->
+      <div class="card">
+          <h2>Feedback</h2>
+          <form class="feedback-form">
+              <label for="feedback">Your Feedback:</label>
+              <textarea id="feedback" name="feedback" rows="4" placeholder="Enter your feedback here..."></textarea>
+              <button type="submit">Submit</button>
+          </form>
+      </div>
+  </div>
+
+  <script>
+      document.getElementById('searchForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+          const studentNameOrId = document.getElementById('studentNameOrId').value;
+
+          // Clear previous search results
+          document.getElementById('studentInfo').classList.add('hidden');
+          document.getElementById('attendanceRecords').classList.add('hidden');
+          document.getElementById('recentActivities').classList.add('hidden');
+          document.getElementById('upcomingEvents').classList.add('hidden');
+          document.getElementById('announcements').classList.add('hidden');
+          document.getElementById('gradeReport').classList.add('hidden');
+          document.getElementById('homeworkAssignments').classList.add('hidden');
+          document.getElementById('schoolCalendar').classList.add('hidden');
+          document.getElementById('bookStatus').classList.add('hidden');
+          document.getElementById('extracurricularActivities').classList.add('hidden');
+          document.getElementById('notifications').classList.add('hidden');
+          document.getElementById('healthRecords').classList.add('hidden');
+          document.getElementById('behaviorReports').classList.add('hidden');
+          document.getElementById('achievements').classList.add('hidden');
+          document.getElementById('volunteerWork').classList.add('hidden');
+          document.getElementById('announcementArchive').classList.add('hidden');
+          document.getElementById('deadlines').classList.add('hidden');
+          document.getElementById('schoolPolicies').classList.add('hidden');
+
+          // Fetch student data based on search criteria (mock data for demonstration)
+          // Replace this with actual API calls
+          const studentData = fetchStudentData(studentNameOrId);
+
+          if (studentData) {
+              document.getElementById('studentInfo').classList.remove('hidden');
+              document.getElementById('studentNameDisplay').textContent = studentData.name;
+              document.getElementById('studentGradeDisplay').textContent = studentData.grade;
+              document.getElementById('studentClassDisplay').textContent = studentData.class;
+
+              document.getElementById('attendanceRecords').classList.remove('hidden');
+              populateAttendanceRecords(studentData.attendanceRecords);
+
+              document.getElementById('recentActivities').classList.remove('hidden');
+              populateRecentActivities(studentData.recentActivities);
+
+              document.getElementById('upcomingEvents').classList.remove('hidden');
+              populateUpcomingEvents(studentData.upcomingEvents);
+
+              document.getElementById('announcements').classList.remove('hidden');
+              document.getElementById('announcementContent').textContent = studentData.announcements;
+
+              document.getElementById('gradeReport').classList.remove('hidden');
+              populateGradeReport(studentData.gradeReport);
+
+              document.getElementById('homeworkAssignments').classList.remove('hidden');
+              populateHomeworkAssignments(studentData.homeworkAssignments);
+
+              document.getElementById('schoolCalendar').classList.remove('hidden');
+              populateSchoolCalendar(studentData.schoolCalendar);
+
+              document.getElementById('bookStatus').classList.remove('hidden');
+              populateBookStatus(studentData.bookStatus);
+
+              document.getElementById('extracurricularActivities').classList.remove('hidden');
+              populateExtracurricularActivities(studentData.extracurricularActivities);
+
+              document.getElementById('notifications').classList.remove('hidden');
+              populateNotifications(studentData.notifications);
+
+              document.getElementById('healthRecords').classList.remove('hidden');
+              populateHealthRecords(studentData.healthRecords);
+
+              document.getElementById('behaviorReports').classList.remove('hidden');
+              populateBehaviorReports(studentData.behaviorReports);
+
+              document.getElementById('achievements').classList.remove('hidden');
+              populateAchievements(studentData.achievements);
+
+              document.getElementById('volunteerWork').classList.remove('hidden');
+              populateVolunteerWork(studentData.volunteerWork);
+
+              document.getElementById('announcementArchive').classList.remove('hidden');
+              populateAnnouncementArchive(studentData.announcementArchive);
+
+              document.getElementById('deadlines').classList.remove('hidden');
+              populateDeadlines(studentData.deadlines);
+
+              document.getElementById('schoolPolicies').classList.remove('hidden');
+              populateSchoolPolicies(studentData.schoolPolicies);
+          } else {
+              alert('Student not found');
+          }
+      });
+
+      // Mock function to fetch student data
+      function fetchStudentData(nameOrId) {
+          // Replace with actual data fetching logic
+          const mockData = {
+              name: 'John Doe',
+              grade: '10',
+              class: 'A',
+              attendanceRecords: [
+                  { date: '2024-06-01', status: 'Present' },
+                  { date: '2024-06-02', status: 'Absent' }
+              ],
+              recentActivities: ['Participated in Science Fair', 'Completed Math Homework'],
+              upcomingEvents: ['School Play on July 15', 'Parent-Teacher Meeting on August 10'],
+              announcements: 'Summer break starts from June 15.',
+              gradeReport: [
+                  { subject: 'Math', grade: 'A', comments: 'Excellent' },
+                  { subject: 'Science', grade: 'B+', comments: 'Good' }
+              ],
+              homeworkAssignments: ['Math Assignment 1', 'Science Project'],
+              schoolCalendar: ['School Starts on September 1', 'Winter Break from December 20'],
+              bookStatus: [
+                  { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', status: 'Returned', dueDate: '' },
+                  { title: 'To Kill a Mockingbird', author: 'Harper Lee', status: 'Checked Out', dueDate: '2024-07-15' }
+              ],
+              extracurricularActivities: ['Soccer Team', 'Debate Club'],
+              notifications: ['Parent-Teacher Meeting on August 10'],
+              healthRecords: [
+                  { date: '2024-01-10', healthIssue: 'Cold', treatment: 'Medication', followUpDate: '2024-02-10' },
+                  { date: '2024-04-15', healthIssue: 'Allergy', treatment: 'Medication', followUpDate: '2024-05-15' }
+              ],
+              behaviorReports: [
+                  { date: '2024-05-01', incident: 'Late to Class', actionTaken: 'Warning', comments: 'Need to improve punctuality' },
+                  { date: '2024-05-10', incident: 'Disruptive Behavior', actionTaken: 'Meeting with Parents', comments: 'Discussed behavior issues' }
+              ],
+              achievements: ['Won Math Olympiad', 'Best Speaker Award'],
+              volunteerWork: ['Volunteered at Community Food Drive', 'Participated in Tree Planting'],
+              announcementArchive: [
+                  { date: '2024-01-10', announcement: 'New Semester Starts' },
+                  { date: '2024-03-15', announcement: 'Spring Break Announced' }
+              ],
+              deadlines: [
+                  { assignment: 'Science Project', dueDate: '2024-07-10' },
+                  { assignment: 'Math Homework', dueDate: '2024-06-20' }
+              ],
+              schoolPolicies: ['Policy on Attendance', 'Guidelines for Homework Submission']
+          };
+          // Example: return mockData for all queries
+          return mockData;
+      }
+
+      // Mock function to populate data
+      function populateAttendanceRecords(records) {
+          const tableBody = document.getElementById('attendanceList');
+          tableBody.innerHTML = '';
+          records.forEach(record => {
+              const row = `<tr><td>${record.date}</td><td>${record.status}</td></tr>`;
+              tableBody.innerHTML += row;
+          });
+      }
+
+      function populateRecentActivities(activities) {
+          const list = document.getElementById('recentActivitiesList');
+          list.innerHTML = '';
+          activities.forEach(activity => {
+              const listItem = `<li>${activity}</li>`;
+              list.innerHTML += listItem;
+          });
+      }
+
+      function populateUpcomingEvents(events) {
+          const list = document.getElementById('upcomingEventsList');
+          list.innerHTML = '';
+          events.forEach(event => {
+              const listItem = `<li>${event}</li>`;
+              list.innerHTML += listItem;
+          });
+      }
+
+      function populateGradeReport(grades) {
+          const tableBody = document.getElementById('gradeList');
+          tableBody.innerHTML = '';
+          grades.forEach(grade => {
+              const row = `<tr><td>${grade.subject}</td><td>${grade.grade}</td><td>${grade.comments}</td></tr>`;
+              tableBody.innerHTML += row;
+          });
+      }
+
+      function populateHomeworkAssignments(assignments) {
+          const list = document.getElementById('homeworkList');
+          list.innerHTML = '';
+          assignments.forEach(assignment => {
+              const listItem = `<li>${assignment}</li>`;
+              list.innerHTML += listItem;
+          });
+      }
+
+      function populateSchoolCalendar(events) {
+          const list = document.getElementById('calendarList');
+          list.innerHTML = '';
+          events.forEach(event => {
+              const listItem = `<li>${event}</li>`;
+              list.innerHTML += listItem;
+          });
+      }
+
+      function populateBookStatus(books) {
+          const tableBody = document.getElementById('bookStatusList');
+          tableBody.innerHTML = '';
+          books.forEach(book => {
+              const row = `<tr><td>${book.title}</td><td>${book.author}</td><td>${book.status}</td><td>${book.dueDate}</td></tr>`;
+              tableBody.innerHTML += row;
+          });
+      }
+
+      function populateExtracurricularActivities(activities) {
+          const list = document.getElementById('extracurricularList');
+          list.innerHTML = '';
+          activities.forEach(activity => {
+              const listItem = `<li>${activity}</li>`;
+              list.innerHTML += listItem;
+          });
+      }
+
+      function populateNotifications(notifications) {
+          const list = document.getElementById('notificationList');
+          list.innerHTML = '';
+          notifications.forEach(notification => {
+              const listItem = `<li>${notification}</li>`;
+              list.innerHTML += listItem;
+          });
+      }
+
+      function populateHealthRecords(records) {
+          const tableBody = document.getElementById('healthRecordList');
+          tableBody.innerHTML = '';
+          records.forEach(record => {
+              const row = `<tr><td>${record.date}</td><td>${record.healthIssue}</td><td>${record.treatment}</td><td>${record.followUpDate}</td></tr>`;
+              tableBody.innerHTML += row;
+          });
+      }
+
+      function populateBehaviorReports(reports) {
+          const tableBody = document.getElementById('behaviorReportList');
+          tableBody.innerHTML = '';
+          reports.forEach(report => {
+              const row = `<tr><td>${report.date}</td><td>${report.incident}</td><td>${report.actionTaken}</td><td>${report.comments}</td></tr>`;
+              tableBody.innerHTML += row;
+          });
+      }
+
+      function populateAchievements(achievements) {
+          const list = document.getElementById('achievementList');
+          list.innerHTML = '';
+          achievements.forEach(achievement => {
+              const listItem = `<li>${achievement}</li>`;
+              list.innerHTML += listItem;
+          });
+      }
+
+      function populateVolunteerWork(works) {
+          const list = document.getElementById('volunteerList');
+          list.innerHTML = '';
+          works.forEach(work => {
+              const listItem = `<li>${work}</li>`;
+              list.innerHTML += listItem;
+          });
+      }
+
+      function populateAnnouncementArchive(announcements) {
+          const tableBody = document.getElementById('announcementArchiveList');
+          tableBody.innerHTML = '';
+          announcements.forEach(announcement => {
+              const row = `<tr><td>${announcement.date}</td><td>${announcement.announcement}</td></tr>`;
+              tableBody.innerHTML += row;
+          });
+      }
+
+      function populateDeadlines(deadlines) {
+          const tableBody = document.getElementById('deadlineList');
+          tableBody.innerHTML = '';
+          deadlines.forEach(deadline => {
+              const row = `<tr><td>${deadline.assignment}</td><td>${deadline.dueDate}</td></tr>`;
+              tableBody.innerHTML += row;
+          });
+      }
+
+      function populateSchoolPolicies(policies) {
+          const list = document.getElementById('policyList');
+          list.innerHTML = '';
+          policies.forEach(policy => {
+              const listItem = `<li>${policy}</li>`;
+              list.innerHTML += listItem;
+          });
+      }
+  </script>
+</body>
+</html>

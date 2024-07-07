@@ -45,20 +45,17 @@ body {
   /*
   CHALLENGE: change the background to one you like
   */
-  --background-image:url(Academy_School_Building.jpg);
+  --background-image:url(school\ 2.avif);
   
   /*
   CHALLENGE: change the main color to one you like!
   */
-  --main-color: var(--candy);
-  
-  
+  --main-color: var(--snow);
   
    /* 
   CHALLENGE: change the font to one you think is cool
   */
   font-family: var(--simple-font);
-  
 }
 
 
@@ -66,7 +63,7 @@ body {
   /* 
   BONUS CHALLENGE: adjust how many columns you'd like to have
   */
- column-count: 4;
+ column-count: 2;
  column-gap: 10px;
 }
 
@@ -86,8 +83,7 @@ body {
   background: var(--background-image) no-repeat center center fixed;
   background-size: cover;
   color: var(--main-color);
-  }
-
+}
 
 .marquee-container {
   overflow: hidden;
@@ -147,10 +143,13 @@ nav ul li a {
 
 main {
   padding: 10px;
-  text-align: center;
-  font-size: x-large;
-  
+  text-align:justify;
+  color:greenyellow;
+  font-size:x-large;
 }
+
+
+
 
 
 h1, h2 {
@@ -256,66 +255,4 @@ h1, h2 {
   justify-content: space-between;
   padding: 0 10px;
   background-color: white;
-}
-
-
-
-.container {
-  background-color: white;
-  padding: 20px;
-  max: width 100%;;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  
-}
-
-
-
-
-
-h1, h2 {
-  color: #4CAF50;
-}
-
-.introduction, .covid-adaptation, .logos {
-  margin-bottom: 20px;
-}
-
-p {
-  line-height: 1.6;
-}
-
-.logos img {
-  width: 100px;
-  height: auto;
-  margin-right: 10px;
-  cursor: pointer;
-}
-
-.logos img:last-child {
-  margin-right: 0;
-}
-
-.logo-info {
-  padding: 20px;
-  border: 1px solid #ddd;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: none;
-}
-
-.logo-info h2 {
-  margin-top: 0;
-}
-
-.hidden {
-  display: none;
-}
-
-.visible {
-  display: block;
 }

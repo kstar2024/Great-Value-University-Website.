@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .card {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+        }
+        .card ul, .card table {
+            width: 100%;
+        }
+        .card ul li, .card table td, .card table th {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .card ul li {
+            background-color: #f9f9f9;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .card table {
+            border-collapse: collapse;
+        }
+        .card table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Teacher Portal</h1>
+    </div>
+    <div class="container">
+        <!-- Dashboard -->
+        <div class="card">
+            <h2>Dashboard</h2>
+            <div id="dashboardStats">
+                <p>Total Classes: <span id="totalClasses">0</span></p>
+                <p>Total Students: <span id="totalStudents">0</span></p>
+                <p>Total Assignments: <span id="totalAssignments">0</span></p>
+                <p>Upcoming Events: <span id="upcomingEventsCount">0</span></p>
+                <p>Pending Feedback: <span id="pendingFeedbackCount">0</span></p>
+                <p>Professional Development: <span id="pdSessionsCount">0</span> Sessions</p>
+            </div>
+        </div>
+        <!-- Class List -->
+        <div class="card">
+            <h2>Class List</h2>
+            <ul id="classList"></ul>
+        </div>
+        <!-- Class Details -->
+        <div class="card hidden" id="classDetails">
+            <h2>Class Details</h2>
+            <p>Class: <span id="className"></span></p>
+            <p>Subject: <span id="classSubject"></span></p>
+            <p>Teacher: <span id="classTeacher"></span></p>
+            <button onclick="showClassAssignments()">View Assignments</button>
+            <button onclick="showClassStudents()">View Students</button>
+            <button onclick="showClassHomework()">View Homework</button>
+            <button onclick="showClassAttendance()">View Attendance</button>
+            <button onclick="showClassAnnouncements()">View Announcements</button>
+            <button onclick="showClassEvents()">View Events</button>
+            <button onclick="showClassGrades()">View Grades</button>
+            <button onclick="showClassMeetings()">View Meetings</button>
+            <button onclick="showClassResources()">View Resources</button>
+            <button onclick="showClassReports()">View Reports</button>
+            <button onclick="showClassDiscipline()">View Discipline Records</button>
+        </div>
+        <!-- Class Assignments -->
+        <div class="card hidden" id="classAssignments">
+            <h2>Class Assignments</h2>
+            <ul id="assignmentList"></ul>
+        </div>
+        <!-- Class Students -->
+        <div class="card hidden" id="classStudents">
+            <h2>Class Students</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>ID</th>
+                        <th>Grade</th>
+                        <th>Class</th>
+                    </tr>
+                </thead>
+                <tbody id="studentList"></tbody>
+            </table>
+        </div>
+        <!-- Class Homework -->
+        <div class="card hidden" id="classHomework">
+            <h2>Class Homework</h2>
+            <ul id="homeworkList"></ul>
+        </div>
+        <!-- Class Attendance -->
+        <div class="card hidden" id="classAttendance">
+            <h2>Class Attendance</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Student Name</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="attendanceList"></tbody>
+            </table>
+        </div>
+        <!-- Class Announcements -->
+        <div class="card hidden" id="classAnnouncements">
+            <h2>Class Announcements</h2>
+            <ul id="announcementList"></ul>
+        </div>
+        <!-- Class Events -->
+        <div class="card hidden" id="classEvents">
+            <h2>Class Events</h2>
+            <ul id="eventList"></ul>
+        </div>
+        <!-- Class Grades -->
+        <div class="card hidden" id="classGrades">
+            <h2>Class Grades</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Assignment</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody id="gradeList"></tbody>
+            </table>
+        </div>
+        <!-- Class Meetings -->
+        <div class="card hidden" id="classMeetings">
+            <h2>Class Meetings</h2>
+            <ul id="meetingList"></ul>
+            <button onclick="showCreateMeetingForm()">Schedule a Meeting</button>
+        </div>
+        <!-- Create Meeting Form -->
+        <div class="card hidden" id="createMeetingForm">
+            <h2>Schedule a Meeting</h2>
+            <form id="meetingForm">
+                <div class="form-group">
+                    <label for="meetingTitle">Meeting Title:</label>
+                    <input type="text" id="meetingTitle" name="meetingTitle" required />
+                </div>
+                <div class="form-group">
+                    <label for="meetingDate">Date:</label>
+                    <input type="date" id="meetingDate" name="meetingDate" required />
+                </div>
+                <div class="form-group">
+                    <label for="meetingTime">Time:</label>
+                    <input type="time" id="meetingTime" name="meetingTime" required />
+                </div>
+                <div class="form-group">
+                    <label for="meetingDetails">Details:</label>
+                    <textarea id="meetingDetails" name="meetingDetails" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Schedule Meeting</button>
+                </div>
+            </form>
+        </div>
+        <!-- Class Resources -->
+        <div class="card hidden" id="classResources">
+            <h2>Class Resources</h2>
+            <ul id="resourceList"></ul>
+            <button onclick="showUploadResourceForm()">Upload Resource</button>
+        </div>
+        <!-- Upload Resource Form -->
+        <div class="card hidden" id="uploadResourceForm">
+            <h2>Upload Resource</h2>
+            <form id="resourceForm">
+                <div class="form-group">
+                    <label for="resourceTitle">Resource Title:</label>
+                    <input type="text" id="resourceTitle" name="resourceTitle" required />
+                </div>
+                <div class="form-group">
+                    <label for="resourceFile">Upload File:</label>
+                    <input type="file" id="resourceFile" name="resourceFile" required />
+                </div>
+                <div class="form-group">
+                    <button type="submit">Upload Resource</button>
+                </div>
+            </form>
+        </div>
+        <!-- Class Reports -->
+        <div class="card hidden" id="classReports">
+            <h2>Class Reports</h2>
+            <ul id="reportList"></ul>
+        </div>
+        <!-- Class Discipline -->
+        <div class="card hidden" id="classDiscipline">
+            <h2>Class Discipline Records</h2>
+            <ul id="disciplineList"></ul>
+        </div>
+        <!-- Create Assignment Form -->
+        <div class="card">
+            <h2>Create Assignment</h2>
+            <form id="createAssignmentForm">
+                <div class="form-group">
+                    <label for="assignmentTitle">Assignment Title:</label>
+                    <input type="text" id="assignmentTitle" name="assignmentTitle" required />
+                </div>
+                <div class="form-group">
+                    <label for="assignmentDescription">Description:</label>
+                    <textarea id="assignmentDescription" name="assignmentDescription" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="assignmentClass">Class:</label>
+                    <select id="assignmentClass" name="assignmentClass" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="assignmentDeadline">Deadline:</label>
+                    <input type="date" id="assignmentDeadline" name="assignmentDeadline" required />
+                </div>
+                <div class="form-group">
+                    <button type="submit">Create Assignment</button>
+                </div>
+            </form>
+        </div>
+        <!-- Create Announcement Form -->
+        <div class="card">
+            <h2>Create Announcement</h2>
+            <form id="createAnnouncementForm">
+                <div class="form-group">
+                    <label for="announcementTitle">Announcement Title:</label>
+                    <input type="text" id="announcementTitle" name="announcementTitle" required />
+                </div>
+                <div class="form-group">
+                    <label for="announcementContent">Content:</label>
+                    <textarea id="announcementContent" name="announcementContent" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="announcementClass">Class:</label>
+                    <select id="announcementClass" name="announcementClass" required></select>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Create Announcement</button>
+                </div>
+            </form>
+        </div>
+        <!-- Create Event Form -->
+        <div class="card">
+            <h2>Create Event</h2>
+            <form id="createEventForm">
+                <div class="form-group">
+                    <label for="eventTitle">Event Title:</label>
+                    <input type="text" id="eventTitle" name="eventTitle" required />
+                </div>
+                <div class="form-group">
+                    <label for="eventDate">Date:</label>
+                    <input type="date" id="eventDate" name="eventDate" required />
+                </div>
+                <div class="form-group">
+                    <label for="eventDetails">Details:</label>
+                    <textarea id="eventDetails" name="eventDetails" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Create Event</button>
+                </div>
+            </form>
+        </div>
+        <!-- Feedback Form -->
+        <div class="card">
+            <h2>Submit Feedback</h2>
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="feedbackContent">Feedback:</label>
+                    <textarea id="feedbackContent" name="feedbackContent" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit Feedback</button>
+                </div>
+            </form>
+        </div>
+        <!-- Professional Development -->
+        <div class="card">
+            <h2>Professional Development</h2>
+            <button onclick="showCreatePdSessionForm()">Schedule a PD Session</button>
+            <ul id="pdSessionList"></ul>
+        </div>
+        <!-- Create PD Session Form -->
+        <div class="card hidden" id="createPdSessionForm">
+            <h2>Schedule a Professional Development Session</h2>
+            <form id="pdSessionForm">
+                <div class="form-group">
+                    <label for="pdTitle">Session Title:</label>
+                    <input type="text" id="pdTitle" name="pdTitle" required />
+                </div>
+                <div class="form-group">
+                    <label for="pdDate">Date:</label>
+                    <input type="date" id="pdDate" name="pdDate" required />
+                </div>
+                <div class="form-group">
+                    <label for="pdTime">Time:</label>
+                    <input type="time" id="pdTime" name="pdTime" required />
+                </div>
+                <div class="form-group">
+                    <label for="pdDetails">Details:</label>
+                    <textarea id="pdDetails" name="pdDetails" rows="4" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Schedule PD Session</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Mock Data
+        const mockData = {
+            classes: [
+                { id: 1, name: 'Math 101', subject: 'Mathematics', teacher: 'Mr. Smith' },
+                { id: 2, name: 'Science 101', subject: 'Science', teacher: 'Ms. Johnson' }
+            ],
+            students: [
+                { name: 'John Doe', id: 'S001', grade: '10', class: 'Math 101' },
+                { name: 'Jane Doe', id: 'S002', grade: '10', class: 'Math 101' },
+                { name: 'Emily Davis', id: 'S003', grade: '10', class: 'Science 101' }
+            ],
+            assignments: [
+                { title: 'Math Homework 1', description: 'Complete exercises 1-10 from the textbook', deadline: '2024-07-10', classId: 1 },
+                { title: 'Science Project', description: 'Research and present on the solar system', deadline: '2024-08-15', classId: 2 }
+            ],
+            announcements: [
+                { title: 'Welcome to the New School Year!', content: 'We are excited to have you back for another great year!', date: '2024-06-01', classId: 1 }
+            ],
+            events: [
+                { title: 'Parent-Teacher Conference', date: '2024-07-20', details: 'Discuss student progress and goals for the new year.', classId: 1 }
+            ],
+            homework: [
+                { title: 'Complete Math Worksheet', description: 'Do exercises 1-5 on page 23', submissionDate: '2024-07-05', classId: 1 }
+            ],
+            attendance: [
+                { date: '2024-06-01', studentName: 'John Doe', status: 'Present', classId: 1 },
+                { date: '2024-06-01', studentName: 'Jane Doe', status: 'Absent', classId: 1 }
+            ],
+            grades: [
+                { studentName: 'John Doe', assignment: 'Math Homework 1', grade: 'A', classId: 1 },
+                { studentName: 'Jane Doe', assignment: 'Math Homework 1', grade: 'B', classId: 1 }
+            ],
+            meetings: [
+                { title: 'Math 101 Review Session', date: '2024-07-10', time: '10:00', details: 'Review for the upcoming test.', classId: 1 }
+            ],
+            resources: [
+                { title: 'Math Textbook', classId: 1 },
+                { title: 'Science Lab Manual', classId: 2 }
+            ],
+            reports: [
+                { title: 'End of Year Report', classId: 1 }
+            ],
+            disciplineRecords: [
+                { studentName: 'Jane Doe', issue: 'Late to class', date: '2024-06-01', classId: 1 }
+            ],
+            feedback: [
+                { content: 'Great portal experience!', date: '2024-06-01' }
+            ],
+            pdSessions: [
+                { title: 'Effective Teaching Strategies', date: '2024-07-15', time: '09:00', details: 'Workshop on effective teaching techniques.' }
+            ]
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Populate dashboard stats
+            document.getElementById('totalClasses').textContent = mockData.classes.length;
+            document.getElementById('totalStudents').textContent = mockData.students.length;
+            document.getElementById('totalAssignments').textContent = mockData.assignments.length;
+            document.getElementById('upcomingEventsCount').textContent = mockData.events.length;
+            document.getElementById('pendingFeedbackCount').textContent = mockData.feedback.length;
+            document.getElementById('pdSessionsCount').textContent = mockData.pdSessions.length;
+
+            // Populate class list
+            const classList = document.getElementById('classList');
+            mockData.classes.forEach(cls => {
+                const listItem = `<li><a href="#" onclick="showClassDetails(${cls.id})">${cls.name} (${cls.subject}) - ${cls.teacher}</a></li>`;
+                classList.innerHTML += listItem;
+            });
+
+            // Populate PD Session List
+            const pd

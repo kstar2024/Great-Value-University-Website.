@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Value Academy Teacher Portal</title>
+    <link rel="stylesheet" href="teacher2.css">
+</head>
+<body>
+    <header>
+        <h1>Great Value Academy Teacher Portal</h1>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#classes">Classes</a></li>
+                <li><a href="#attendance">Attendance</a></li>
+                <li><a href="#messages">Messages</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#profile">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <li><a href="academyweb.html">Home</a></li>
+    <main>
+        <section id="dashboard">
+            <h2>Dashboard</h2>
+            <div class="widget">
+                <h3>Upcoming Classes</h3>
+                <ul id="class-list"></ul>
+            </div>
+            <div class="widget">
+                <h3>Notifications</h3>
+                <ul id="notification-list"></ul>
+            </div>
+        </section>
+        
+        <section id="classes">
+            <h2>Classes</h2>
+            <form id="add-class-form">
+                <label for="class-name">Class Name:</label>
+                <input type="text" id="class-name" name="class-name" required>
+                <label for="class-time">Class Time:</label>
+                <input type="text" id="class-time" name="class-time" required>
+                <button type="submit">Add Class</button>
+            </form>
+            <h3>My Classes</h3>
+            <ul id="my-classes"></ul>
+        </section>
+
+        <section id="attendance">
+            <h2>Attendance</h2>
+            <form id="mark-attendance-form">
+                <label for="class-select">Select Class:</label>
+                <select id="class-select" name="class-select" required></select>
+                <label for="student-name">Student Name:</label>
+                <input type="text" id="student-name" name="student-name" required>
+                <button type="submit">Mark Present</button>
+            </form>
+            <h3>Attendance Records</h3>
+            <ul id="attendance-records"></ul>
+        </section>
+        
+        <section id="messages">
+            <h2>Messages</h2>
+            <form id="send-message-form">
+                <label for="recipient">Recipient:</label>
+                <input type="text" id="recipient" name="recipient" required>
+                <label for="message-content">Message:</label>
+                <textarea id="message-content" name="message-content" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <h3>Inbox</h3>
+            <ul id="inbox"></ul>
+        </section>
+
+        <section id="resources">
+            <h2>Resources</h2>
+            <form id="upload-resource-form">
+                <label for="resource-title">Resource Title:</label>
+                <input type="text" id="resource-title" name="resource-title" required>
+                <label for="resource-file">Upload File:</label>
+                <input type="file" id="resource-file" name="resource-file" required>
+                <button type="submit">Upload Resource</button>
+            </form>
+            <h3>Available Resources</h3>
+            <ul id="resource-list"></ul>
+        </section>
+        
+        <section id="profile">
+            <h2>Profile</h2>
+            <form id="update-profile-form">
+                <label for="profile-name">Name:</label>
+                <input type="text" id="profile-name" name="profile-name" required>
+                <label for="profile-email">Email:</label>
+                <input type="email" id="profile-email" name="profile-email" required>
+                <button type="submit">Update Profile</button>
+            </form>
+        </section>
+    </main>
+    
+    <script src="teacher2.js"></script>
+</body>
+</html>
