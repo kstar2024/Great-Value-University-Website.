@@ -1,162 +1,246 @@
 // Check if the user is authenticated
-const studentId = localStorage.getItem('studentId');
+const teacherId = localStorage.getItem('teacherId');
 const loginContainer = document.getElementById('loginContainer');
-const studentDashboard = document.getElementById('studentDashboard');
-const studentPortalLink = document.getElementById('studentPortalLink');
+const teacherPortal = document.getElementById('teacherPortal');
 
-// If studentId exists in localStorage, show the dashboard
-if (studentId) {
+// If teacherId exists in localStorage, show the portal
+if (teacherId) {
     loginContainer.style.display = 'none';
-    studentDashboard.style.display = 'block';
-    loadStudentData(studentId);
+    teacherPortal.style.display = 'block';
+    loadTeacherData(teacherId);
 }
 
 // Login Form Submission
 document.getElementById('loginForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const studentId = document.getElementById('studentId').value;
+    const teacherId = document.getElementById('teacherId').value;
     const password = document.getElementById('password').value;
 
     // Dummy authentication for demonstration
     // Replace with real authentication logic
-    if (studentId === '12345' && password === 'password') {
-        localStorage.setItem('studentId', studentId);
+    if (teacherId === '12345' && password === 'password') {
+        localStorage.setItem('teacherId', teacherId);
         loginContainer.style.display = 'none';
-        studentDashboard.style.display = 'block';
-        loadStudentData(studentId);
+        teacherPortal.style.display = 'block';
+        loadTeacherData(teacherId);
     } else {
-        document.getElementById('error-message').textContent = 'Invalid Student ID or Password';
+        document.getElementById('error-message').textContent = 'Invalid Teacher ID or Password';
     }
 });
 
-// Load Student Data
-function loadStudentData(studentId) {
+// Load Teacher Data
+function loadTeacherData(teacherId) {
     const apiBaseUrl = 'https://api.greatvalueacademy.com';
 
-    // Fetch Student Profile
-    fetch(`${apiBaseUrl}/student/${studentId}/profile`)
+    // Fetch Upcoming Classes
+    fetch(`${apiBaseUrl}/teacher/${teacherId}/classes`)
         .then(response => response.json())
         .then(data => {
-            document.getElementById('profile-pic').src = data.profilePic;
-            document.getElementById('student-name').textContent = `Name: ${data.name}`;
-            document.getElementById('student-grade').textContent = `Grade: ${data.grade}`;
-            document.getElementById('student-email').textContent = `Email: ${data.email}`;
-        });
-
-    // Fetch Academic Performance
-    fetch(`${apiBaseUrl}/student/${studentId}/performance`)
-        .then(response => response.json())
-        .then(data => {
-            const performanceTable = document.querySelector('#performance-table tbody');
-            performanceTable.innerHTML = ''; // Clear previous data
-            data.performance.forEach(subject => {
-                const row = document.createElement('tr');
-                row.innerHTML = `<td>${subject.subject}</td><td>${subject.grade}</td><td>${subject.remarks}</td>`;
-                performanceTable.appendChild(row);
-            });
-        });
-
-    // Fetch Class Schedule
-    fetch(`${apiBaseUrl}/student/${studentId}/schedule`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('class-schedule-content').innerHTML = data.schedule.map(item => `<p>${item}</p>`).join('');
-        });
-
-    // Fetch Assignments
-    fetch(`${apiBaseUrl}/student/${studentId}/assignments`)
-        .then(response => response.json())
-        .then(data => {
-            const assignmentsList = document.getElementById('assignments-list');
-            assignmentsList.innerHTML = ''; // Clear previous data
-            data.assignments.forEach(assignment => {
+            const classList = document.getElementById('class-list');
+            classList.innerHTML = ''; // Clear previous data
+            data.classes.forEach(cls => {
                 const listItem = document.createElement('li');
-                listItem.textContent = `${assignment.title} - Due: ${assignment.dueDate}`;
-                assignmentsList.appendChild(listItem);
+                listItem.textContent = `${cls.name} - ${cls.time}`;
+                classList.appendChild(listItem);
             });
         });
 
-    // Fetch Attendance
-    fetch(`${apiBaseUrl}/student/${studentId}/attendance`)
+    // Fetch Notifications
+    fetch(`${apiBaseUrl}/teacher/${teacherId}/notifications`)
         .then(response => response.json())
         .then(data => {
-            document.getElementById('attendance-percentage').textContent = `Attendance Percentage: ${data.percentage}%`;
-            const attendanceTable = document.querySelector('#attendance-table tbody');
-            attendanceTable.innerHTML = ''; // Clear previous data
-            data.attendance.forEach(day => {
-                const row = document.createElement('tr');
-                row.innerHTML = `<td>${day.date}</td><td>${day.status}</td>`;
-                attendanceTable.appendChild(row);
-            });
-        });
-
-    // Fetch Extracurricular Activities
-    fetch(`${apiBaseUrl}/student/${studentId}/activities`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('extracurricular-activities-content').textContent = data.activities.join(', ');
-        });
-
-    // Fetch Notices and Announcements
-    fetch(`${apiBaseUrl}/student/${studentId}/notices`)
-        .then(response => response.json())
-        .then(data => {
-            const noticesList = document.getElementById('notices-list');
-            noticesList.innerHTML = ''; // Clear previous data
-            data.notices.forEach(notice => {
+            const notificationList = document.getElementById('notification-list');
+            notificationList.innerHTML = ''; // Clear previous data
+            data.notifications.forEach(notification => {
                 const listItem = document.createElement('li');
-                listItem.textContent = notice;
-                noticesList.appendChild(listItem);
+                listItem.textContent = notification;
+                notificationList.appendChild(listItem);
+            });
+        });
+
+    // Fetch My Classes
+    fetch(`${apiBaseUrl}/teacher/${teacherId}/my-classes`)
+        .then(response => response.json())
+        .then(data => {
+            const myClasses = document.getElementById('my-classes');
+            myClasses.innerHTML = ''; // Clear previous data
+            data.myClasses.forEach(cls => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${cls.name} - ${cls.time}`;
+                myClasses.appendChild(listItem);
+            });
+        });
+
+    // Fetch Attendance Records
+    fetch(`${apiBaseUrl}/teacher/${teacherId}/attendance`)
+        .then(response => response.json())
+        .then(data => {
+            const attendanceRecords = document.getElementById('attendance-records');
+            attendanceRecords.innerHTML = ''; // Clear previous data
+            data.records.forEach(record => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${record.date} - ${record.studentName} - ${record.status}`;
+                attendanceRecords.appendChild(listItem);
+            });
+        });
+
+    // Fetch Inbox Messages
+    fetch(`${apiBaseUrl}/teacher/${teacherId}/messages`)
+        .then(response => response.json())
+        .then(data => {
+            const inbox = document.getElementById('inbox');
+            inbox.innerHTML = ''; // Clear previous data
+            data.messages.forEach(message => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${message.sender}: ${message.content}`;
+                inbox.appendChild(listItem);
             });
         });
 
     // Fetch Resources
-    fetch(`${apiBaseUrl}/student/${studentId}/resources`)
+    fetch(`${apiBaseUrl}/teacher/${teacherId}/resources`)
         .then(response => response.json())
         .then(data => {
-            const resourcesList = document.getElementById('resources-list');
-            resourcesList.innerHTML = ''; // Clear previous data
+            const resourceList = document.getElementById('resource-list');
+            resourceList.innerHTML = ''; // Clear previous data
             data.resources.forEach(resource => {
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `<a href="${resource.link}">${resource.title}</a>`;
-                resourcesList.appendChild(listItem);
+                resourceList.appendChild(listItem);
             });
         });
 
-    // Fetch Contact Teachers
-    fetch(`${apiBaseUrl}/student/${studentId}/teachers`)
+    // Fetch Profile Data
+    fetch(`${apiBaseUrl}/teacher/${teacherId}/profile`)
         .then(response => response.json())
         .then(data => {
-            const teachersContact = document.getElementById('teachers-contact');
-            teachersContact.innerHTML = ''; // Clear previous data
-            data.teachers.forEach(teacher => {
-                const contactInfo = document.createElement('p');
-                contactInfo.innerHTML = `${teacher.subject} Teacher: <a href="mailto:${teacher.email}">${teacher.name}</a>`;
-                teachersContact.appendChild(contactInfo);
-            });
+            document.getElementById('profile-name').value = data.name;
+            document.getElementById('profile-email').value = data.email;
         });
 }
 
-// Edit Profile Button Functionality
-document.getElementById('editProfileBtn').addEventListener('click', function() {
-    alert('Edit Profile functionality coming soon!');
+// Add Class Form Submission
+document.getElementById('add-class-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const className = document.getElementById('class-name').value;
+    const classTime = document.getElementById('class-time').value;
+
+    fetch(`${apiBaseUrl}/teacher/${teacherId}/add-class`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: className, time: classTime }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Class added successfully!');
+            loadTeacherData(teacherId);
+        } else {
+            alert('Error adding class.');
+        }
+    });
 });
 
-// Dummy Calendar Functionality
-document.getElementById('calendar').innerHTML = 'Calendar will be here';
+// Mark Attendance Form Submission
+document.getElementById('mark-attendance-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-// Chat Functionality
-document.getElementById('sendMessageBtn').addEventListener('click', function() {
-    const chatInput = document.getElementById('chatInput');
-    const chatBox = document.getElementById('chatBox');
+    const classSelect = document.getElementById('class-select').value;
+    const studentName = document.getElementById('student-name').value;
 
-    if (chatInput.value.trim() !== '') {
-        const message = document.createElement('div');
-        message.classList.add('chat-message');
-        message.textContent = chatInput.value;
-        chatBox.appendChild(message);
-        chatInput.value = '';
-        chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
-    }
+    fetch(`${apiBaseUrl}/teacher/${teacherId}/mark-attendance`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ classId: classSelect, studentName }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Attendance marked successfully!');
+            loadTeacherData(teacherId);
+        } else {
+            alert('Error marking attendance.');
+        }
+    });
+});
+
+// Send Message Form Submission
+document.getElementById('send-message-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const recipient = document.getElementById('recipient').value;
+    const messageContent = document.getElementById('message-content').value;
+
+    fetch(`${apiBaseUrl}/teacher/${teacherId}/send-message`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ recipient, content: messageContent }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Message sent successfully!');
+            loadTeacherData(teacherId);
+        } else {
+            alert('Error sending message.');
+        }
+    });
+});
+
+// Upload Resource Form Submission
+document.getElementById('upload-resource-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const resourceTitle = document.getElementById('resource-title').value;
+    const resourceFile = document.getElementById('resource-file').files[0];
+
+    const formData = new FormData();
+    formData.append('title', resourceTitle);
+    formData.append('file', resourceFile);
+
+    fetch(`${apiBaseUrl}/teacher/${teacherId}/upload-resource`, {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Resource uploaded successfully!');
+            loadTeacherData(teacherId);
+        } else {
+            alert('Error uploading resource.');
+        }
+    });
+});
+
+// Update Profile Form Submission
+document.getElementById('update-profile-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('profile-name').value;
+    const email = document.getElementById('profile-email').value;
+
+    fetch(`${apiBaseUrl}/teacher/${teacherId}/update-profile`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Profile updated successfully!');
+        } else {
+            alert('Error updating profile.');
+        }
+    });
 });
