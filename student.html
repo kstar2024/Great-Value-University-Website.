@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Portal - Great Value Academy School</title>
+    <link rel="stylesheet" href="student.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="Grea.png" alt="Great Value Academy School">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="activities.html">Activities</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="student.html">Student Portal</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <section class="student-dashboard">
+            <!-- Profile Section -->
+            <div class="profile-section">
+                <h2>Student Profile</h2>
+                <img id="profile-pic" src="" alt="Profile Picture">
+                <p id="student-name">Name: </p>
+                <p id="student-grade">Grade: </p>
+                <p id="student-email">Email: </p>
+                <button id="editProfileBtn">Edit Profile</button>
+            </div>
+
+            <!-- Academic Performance Section -->
+            <div class="academic-performance">
+                <h2>Academic Performance</h2>
+                <table id="performance-table">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Grade</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <!-- Class Schedule Section -->
+            <div class="class-schedule">
+                <h2>Class Schedule</h2>
+                <div id="class-schedule-content"></div>
+            </div>
+
+            <!-- Assignments Section -->
+            <div class="assignments">
+                <h2>Assignments</h2>
+                <ul id="assignments-list"></ul>
+            </div>
+
+            <!-- Attendance Section -->
+            <div class="attendance">
+                <h2>Attendance</h2>
+                <p id="attendance-percentage">Attendance Percentage: </p>
+                <table id="attendance-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <!-- Extracurricular Activities Section -->
+            <div class="extracurricular-activities">
+                <h2>Extracurricular Activities</h2>
+                <p id="extracurricular-activities-content"></p>
+            </div>
+
+            <!-- Notices and Announcements Section -->
+            <div class="notices-announcements">
+                <h2>Notices and Announcements</h2>
+                <ul id="notices-list"></ul>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="resources">
+                <h2>Resources</h2>
+                <ul id="resources-list"></ul>
+            </div>
+
+            <!-- Contact Teachers Section -->
+            <div class="contact-teachers">
+                <h2>Contact Teachers</h2>
+                <div id="teachers-contact"></div>
+            </div>
+
+            <!-- Calendar Section -->
+            <div class="calendar-section">
+                <h2>Calendar</h2>
+                <div id="calendar"></div>
+              
+            </div>
+
+            <!-- Chat Section -->
+            <div class="chat-section">
+                <h2>Chat with Teachers</h2>
+                <div class="chat-box" id="chatBox">
+                    <!-- Chat messages will be dynamically added here -->
+                </div>
+                <input type="text" id="chatInput" placeholder="Type a message...">
+                <button id="sendMessageBtn">Send</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+        <div class="social-media">
+            <a href="https://facebook.com"><img src="facebook-icon.png" alt="Facebook"></a>
+            <a href="https://twitter.com"><img src="twitter-icon.png" alt="Twitter"></a>
+            <a href="https://instagram.com"><img src="instagram-icon.png" alt="Instagram"></a>
+        </div>
+        <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+    </footer>
+
+    <script src="student.js"></script>
+</body>
+</html>
