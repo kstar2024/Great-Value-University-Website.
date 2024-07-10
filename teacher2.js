@@ -1,119 +1,162 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const classList = document.getElementById("class-list");
-  const notificationList = document.getElementById("notification-list");
-  const myClasses = document.getElementById("my-classes");
-  const attendanceRecords = document.getElementById("attendance-records");
-  const classSelect = document.getElementById("class-select");
-  const inbox = document.getElementById("inbox");
-  const resourceList = document.getElementById("resource-list");
+// Check if the user is authenticated
+const studentId = localStorage.getItem('studentId');
+const loginContainer = document.getElementById('loginContainer');
+const studentDashboard = document.getElementById('studentDashboard');
+const studentPortalLink = document.getElementById('studentPortalLink');
 
-  // Sample data
-  const classes = [
-      { name: "Math 101", time: "10:00 AM" },
-      { name: "English 202", time: "1:00 PM" }
-  ];
+// If studentId exists in localStorage, show the dashboard
+if (studentId) {
+    loginContainer.style.display = 'none';
+    studentDashboard.style.display = 'block';
+    loadStudentData(studentId);
+}
 
-  const notifications = [
-      "School meeting at 3 PM.",
-      "Submit grades by Friday."
-  ];
+// Login Form Submission
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-  const messages = [
-      { recipient: "Student A", content: "Please complete your assignment." },
-      { recipient: "Parent B", content: "Your child is doing great!" }
-  ];
+    const studentId = document.getElementById('studentId').value;
+    const password = document.getElementById('password').value;
 
-  const resources = [
-      { title: "Lesson Plan 1", file: "lesson_plan_1.pdf" },
-      { title: "Worksheet 1", file: "worksheet_1.docx" }
-  ];
+    // Dummy authentication for demonstration
+    // Replace with real authentication logic
+    if (studentId === '12345' && password === 'password') {
+        localStorage.setItem('studentId', studentId);
+        loginContainer.style.display = 'none';
+        studentDashboard.style.display = 'block';
+        loadStudentData(studentId);
+    } else {
+        document.getElementById('error-message').textContent = 'Invalid Student ID or Password';
+    }
+});
 
-  const attendance = [];
+// Load Student Data
+function loadStudentData(studentId) {
+    const apiBaseUrl = 'https://api.greatvalueacademy.com';
 
-  // Populate class list and notifications
-  classes.forEach(cls => {
-      const li = document.createElement("li");
-      li.textContent = `${cls.name} at ${cls.time}`;
-      classList.appendChild(li);
+    // Fetch Student Profile
+    fetch(`${apiBaseUrl}/student/${studentId}/profile`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('profile-pic').src = data.profilePic;
+            document.getElementById('student-name').textContent = `Name: ${data.name}`;
+            document.getElementById('student-grade').textContent = `Grade: ${data.grade}`;
+            document.getElementById('student-email').textContent = `Email: ${data.email}`;
+        });
 
-      const classOption = document.createElement("option");
-      classOption.value = cls.name;
-      classOption.textContent = cls.name;
-      classSelect.appendChild(classOption);
+    // Fetch Academic Performance
+    fetch(`${apiBaseUrl}/student/${studentId}/performance`)
+        .then(response => response.json())
+        .then(data => {
+            const performanceTable = document.querySelector('#performance-table tbody');
+            performanceTable.innerHTML = ''; // Clear previous data
+            data.performance.forEach(subject => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${subject.subject}</td><td>${subject.grade}</td><td>${subject.remarks}</td>`;
+                performanceTable.appendChild(row);
+            });
+        });
 
-      myClasses.appendChild(li.cloneNode(true));
-  });
+    // Fetch Class Schedule
+    fetch(`${apiBaseUrl}/student/${studentId}/schedule`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('class-schedule-content').innerHTML = data.schedule.map(item => `<p>${item}</p>`).join('');
+        });
 
-  notifications.forEach(notification => {
-      const li = document.createElement("li");
-      li.textContent = notification;
-      notificationList.appendChild(li);
-  });
+    // Fetch Assignments
+    fetch(`${apiBaseUrl}/student/${studentId}/assignments`)
+        .then(response => response.json())
+        .then(data => {
+            const assignmentsList = document.getElementById('assignments-list');
+            assignmentsList.innerHTML = ''; // Clear previous data
+            data.assignments.forEach(assignment => {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${assignment.title} - Due: ${assignment.dueDate}`;
+                assignmentsList.appendChild(listItem);
+            });
+        });
 
-  messages.forEach(message => {
-      const li = document.createElement("li");
-      li.textContent = `To: ${message.recipient} - ${message.content}`;
-      inbox.appendChild(li);
-  });
+    // Fetch Attendance
+    fetch(`${apiBaseUrl}/student/${studentId}/attendance`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('attendance-percentage').textContent = `Attendance Percentage: ${data.percentage}%`;
+            const attendanceTable = document.querySelector('#attendance-table tbody');
+            attendanceTable.innerHTML = ''; // Clear previous data
+            data.attendance.forEach(day => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${day.date}</td><td>${day.status}</td>`;
+                attendanceTable.appendChild(row);
+            });
+        });
 
-  resources.forEach(resource => {
-      const li = document.createElement("li");
-      li.innerHTML = `<a href="#">${resource.title}</a>`;
-      resourceList.appendChild(li);
-  });
+    // Fetch Extracurricular Activities
+    fetch(`${apiBaseUrl}/student/${studentId}/activities`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('extracurricular-activities-content').textContent = data.activities.join(', ');
+        });
 
-  // Add new class
-  document.getElementById("add-class-form").addEventListener("submit", (event) => {
-      event.preventDefault();
-      const className = document.getElementById("class-name").value;
-      const classTime = document.getElementById("class-time").value;
-      const li = document.createElement("li");
-      li.textContent = `${className} at ${classTime}`;
-      myClasses.appendChild(li);
-      document.getElementById("add-class-form").reset();
+    // Fetch Notices and Announcements
+    fetch(`${apiBaseUrl}/student/${studentId}/notices`)
+        .then(response => response.json())
+        .then(data => {
+            const noticesList = document.getElementById('notices-list');
+            noticesList.innerHTML = ''; // Clear previous data
+            data.notices.forEach(notice => {
+                const listItem = document.createElement('li');
+                listItem.textContent = notice;
+                noticesList.appendChild(listItem);
+            });
+        });
 
-      const classOption = document.createElement("option");
-      classOption.value = className;
-      classOption.textContent = className;
-      classSelect.appendChild(classOption);
-  });
+    // Fetch Resources
+    fetch(`${apiBaseUrl}/student/${studentId}/resources`)
+        .then(response => response.json())
+        .then(data => {
+            const resourcesList = document.getElementById('resources-list');
+            resourcesList.innerHTML = ''; // Clear previous data
+            data.resources.forEach(resource => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<a href="${resource.link}">${resource.title}</a>`;
+                resourcesList.appendChild(listItem);
+            });
+        });
 
-  // Mark attendance
-  document.getElementById("mark-attendance-form").addEventListener("submit", (event) => {
-      event.preventDefault();
-      const className = document.getElementById("class-select").value;
-      const studentName = document.getElementById("student-name").value;
-      const record = `${className} - ${studentName}`;
-      attendance.push(record);
+    // Fetch Contact Teachers
+    fetch(`${apiBaseUrl}/student/${studentId}/teachers`)
+        .then(response => response.json())
+        .then(data => {
+            const teachersContact = document.getElementById('teachers-contact');
+            teachersContact.innerHTML = ''; // Clear previous data
+            data.teachers.forEach(teacher => {
+                const contactInfo = document.createElement('p');
+                contactInfo.innerHTML = `${teacher.subject} Teacher: <a href="mailto:${teacher.email}">${teacher.name}</a>`;
+                teachersContact.appendChild(contactInfo);
+            });
+        });
+}
 
-      const li = document.createElement("li");
-      li.textContent = record;
-      attendanceRecords.appendChild(li);
-      document.getElementById("mark-attendance-form").reset();
-  });
+// Edit Profile Button Functionality
+document.getElementById('editProfileBtn').addEventListener('click', function() {
+    alert('Edit Profile functionality coming soon!');
+});
 
-  // Send new message
-  document.getElementById("send-message-form").addEventListener("submit", (event) => {
-      event.preventDefault();
-      const recipient = document.getElementById("recipient").value;
-      const content = document.getElementById("message-content").value;
-      const li = document.createElement("li");
-      li.textContent = `To: ${recipient} - ${content}`;
-      inbox.appendChild(li);
-      document.getElementById("send-message-form").reset();
-  });
+// Dummy Calendar Functionality
+document.getElementById('calendar').innerHTML = 'Calendar will be here';
 
-  // Upload new resource
-  document.getElementById("upload-resource-form").addEventListener("submit", (event) => {
-      event.preventDefault();
-      const resourceTitle = document.getElementById("resource-title").value;
-      const resourceFile = document.getElementById("resource-file").value.split("\\").pop();
-      const resource = { title: resourceTitle, file: resourceFile };
-      resources.push(resource);
+// Chat Functionality
+document.getElementById('sendMessageBtn').addEventListener('click', function() {
+    const chatInput = document.getElementById('chatInput');
+    const chatBox = document.getElementById('chatBox');
 
-      const li = document.createElement("li");
-      li.innerHTML = `<a href="#">${resource.title}</a>`;
-      resourceList.appendChild(li);
-      document.getElementById("upload-resource-form").reset();
-  });
+    if (chatInput.value.trim() !== '') {
+        const message = document.createElement('div');
+        message.classList.add('chat-message');
+        message.textContent = chatInput.value;
+        chatBox.appendChild(message);
+        chatInput.value = '';
+        chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
+    }
 });
