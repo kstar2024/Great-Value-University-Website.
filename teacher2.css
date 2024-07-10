@@ -1,77 +1,227 @@
+/* General styles */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
 header {
-  background-color: #333;
-  color: white;
-  padding: 1rem 0;
-  text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
+header h1 {
+    margin: 0;
 }
 
-nav ul li {
-  display: inline;
-  margin: 0 1rem;
+header nav ul {
+    list-style: none;
+    padding: 0;
 }
 
-nav ul li a {
-  color: white;
-  text-decoration: none;
+header nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
 }
 
 main {
-  padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-section {
-  margin-bottom: 2rem;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+footer .social-media a img {
+    height: 30px;
+    margin: 0 5px;
+}
+
+/* Login container styles */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-container .form-group {
+    margin-bottom: 15px;
+}
+
+.login-container .form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-container .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background-color: #45a049;
+}
+
+/* Teacher portal styles */
+.teacher-portal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.teacher-portal h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .widget {
-  margin-bottom: 1rem;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .widget h3 {
-  margin-top: 0;
+    margin-bottom: 10px;
 }
 
 form {
-  margin-bottom: 1rem;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 form label {
-  display: block;
-  margin-bottom: 0.5rem;
+    display: block;
+    margin-bottom: 5px;
 }
 
-form input, form textarea, form button, form select {
-  display: block;
-  width: 100%;
-  margin-bottom: 1rem;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+form input, form textarea, form select, form button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
 form button {
-  background-color: #333;
-  color: white;
-  border: none;
-  cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 form button:hover {
-  background-color: #555;
+    background-color: #45a049;
+}
+
+table, ul {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td, li {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    border-bottom: 1px solid #ddd;
+}
+
+.chat-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-box {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.chat-input {
+    margin-top: 10px;
+}
+
+.chat-input textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+}
+
+.chat-input button {
+    margin-top: 10px;
 }
