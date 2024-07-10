@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portal - Great Value Academy School</title>
+    <title>Great Value Academy School</title>
     <link rel="stylesheet" href="student.css">
 </head>
 <body>
@@ -14,20 +14,37 @@
         </div>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="academyweb.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="admissions.html">Admissions</a></li>
                 <li><a href="academics.html">Academics</a></li>
-                <li><a href="activities.html">Activities</a></li>
+                <li><a href="activities">Activities</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="student.html">Student Portal</a></li>
             </ul>
         </nav>
     </header>
-
+    <li><a href="academyweb.html">Home</a></li>
     <!-- Main Content Section -->
     <main>
-        <section class="student-dashboard">
+        <!-- Login Section -->
+        <div class="login-container" id="loginContainer">
+            <h2>Student Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId" name="studentId" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+            <p id="error-message" style="color: red;"></p>
+        </div>
+
+        <!-- Student Dashboard Section -->
+        <section class="student-dashboard" id="studentDashboard" style="display: none;">
             <!-- Profile Section -->
             <div class="profile-section">
                 <h2>Student Profile</h2>
@@ -108,7 +125,6 @@
             <div class="calendar-section">
                 <h2>Calendar</h2>
                 <div id="calendar"></div>
-              
             </div>
 
             <!-- Chat Section -->
@@ -129,11 +145,6 @@
             <li><a href="privacy.html">Privacy Policy</a></li>
             <li><a href="terms.html">Terms of Service</a></li>
         </ul>
-        <div class="social-media">
-            <a href="https://facebook.com"><img src="facebook-icon.png" alt="Facebook"></a>
-            <a href="https://twitter.com"><img src="twitter-icon.png" alt="Twitter"></a>
-            <a href="https://instagram.com"><img src="instagram-icon.png" alt="Instagram"></a>
-        </div>
         <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
     </footer>
 
