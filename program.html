@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Value Academy School - Programs and Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header, footer {
+            background-color:green;
+            color: white;
+            text-align: center;
+            padding: 1px;
+        }
+        nav {
+            position: relative;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+        }
+        nav ul li a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            padding: 0;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        nav ul li ul li {
+            width: 200px;
+        }
+        .container {
+            padding: 20px;
+        }
+        ul.programs {
+            list-style-type: none;
+            padding: 0;
+        }
+        li.program-item {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .image-gallery {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .image-gallery img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .testimonials, .events-calendar, .newsletter-form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+        }
+        .faq-section {
+            margin: 20px 0;
+        }
+        .faq-item {
+            background: white;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .faq-question {
+            cursor: pointer;
+        }
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        form div {
+            margin-bottom: 15px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        form input, form textarea, form select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: #555;
+        }
+        .error {
+            color: red;
+            display: none;
+        }
+        .map {
+            width: 100%;
+            height: 300px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Great Value Academy School</h1>
+        <nav>
+            <ul>
+                <li><a href="#programs">Programs</a>
+                    <ul>
+                        <li><a href="#elementary">Elementary School</a></li>
+                        <li><a href="#middle">Middle School</a></li>
+                        <li><a href="#high">High School</a></li>
+                        <li><a href="#ap">Advanced Placement (AP)</a></li>
+                    </ul>
+                </li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#form">Request Info</a></li>
+                <li><a href="#newsletter">Newsletter</a></li>
+            </ul>
+        </nav>
+       
+    </header>
+    <li><a href="academyweb2.html">Home</a></li>
+    <div class="container" id="programs">
+        <h2>Programs Offered</h2>
+        <ul class="programs">
+            <li class="program-item" id="elementary">
+                <strong>Elementary School:</strong> Kindergarten through 5th Grade
+                <p>Our elementary program focuses on foundational skills in reading, writing, and mathematics. We also introduce students to science, social studies, and the arts.</p>
+                <h3>Kindergarten:</h3>
+                <p>Our kindergarten program lays the foundation for lifelong learning with a focus on social skills, literacy, and numeracy. Activities include storytelling, basic math concepts, art, and physical education.</p>
+                <div class="image-gallery">
+                    <img src="kindergarten1.jpg" alt="Kindergarten Activity 1">
+                    <img src="kindergarten2.jpg" alt="Kindergarten Activity 2">
+                    <img src="kindergarten3.jpg" alt="Kindergarten Activity 3">
+                </div>
+                <h3>1st Grade:</h3>
+                <p>First graders develop their reading and writing skills, learn basic arithmetic, and explore introductory science and social studies topics. Hands-on activities and interactive lessons make learning fun and engaging.</p>
+                <div class="image-gallery">
+                    <img src="first_grade1.jpg" alt="First Grade Activity 1">
+                    <img src="first_grade2.jpg" alt="First Grade Activity 2">
+                    <img src="first_grade3.jpg" alt="First Grade Activity 3">
+                </div>
+                <h3>2nd Grade:</h3>
+                <p>Second grade focuses on enhancing reading fluency, writing structure, and math problem-solving skills. Students also participate in science experiments and learn about their community and the world.</p>
+                <div class="image-gallery">
+                    <img src="second_grade1.jpg" alt="Second Grade Activity 1">
+                    <img src="second_grade2.jpg" alt="Second Grade Activity 2">
+                    <img src="second_grade3.jpg" alt="Second Grade Activity 3">
+                </div>
+                <h3>3rd Grade:</h3>
+                <p>Third graders deepen their comprehension and analytical skills in reading, tackle more complex math problems, and conduct simple scientific investigations. They also begin learning about history and geography.</p>
+                <div class="image-gallery">
+                    <img src="third_grade1.jpg" alt="Third Grade Activity 1">
+                    <img src="third_grade2.jpg" alt="Third Grade Activity 2">
+                    <img src="third_grade3.jpg" alt="Third Grade Activity 3">
+                </div>
+                <h3>4th Grade:</h3>
+                <p>Fourth grade emphasizes critical thinking in all subject areas. Students read and analyze more challenging texts, master multiplication and division, and explore life sciences and American history.</p>
+                <div class="image-gallery">
+                    <img src="fourth_grade1.jpg" alt="Fourth Grade Activity 1">
+                    <img src="fourth_grade2.jpg" alt="Fourth Grade Activity 2">
+                    <img src="fourth_grade3.jpg" alt="Fourth Grade Activity 3">
+                </div>
+                <h3>5th Grade:</h3>
+                <p>Fifth graders prepare for middle school with advanced reading and writing projects, more sophisticated math concepts including fractions and decimals, and in-depth studies of physical science and early American history.</p>
+                <div class="image-gallery">
+                    <img src="fifth_grade1.jpg" alt="Fifth Grade Activity 1">
+                    <img src="fifth_grade2.jpg" alt="Fifth Grade Activity 2">
+                    <img src="fifth_grade3.jpg" alt="Fifth Grade Activity 3">
+                </div>
+            </li>
+            <li class="program-item" id="middle">
+                <strong>Middle School:</strong> 6th Grade through 8th Grade
+                <p>Middle school students engage in a more rigorous curriculum, including advanced mathematics, science, and language arts. Extracurricular activities and sports are also a key part of the middle school experience.</p>
+            </li>
+            <li class="program-item" id="high">
+                <strong>High School:</strong> 9th Grade through 12th Grade
+                <p>Our high school program prepares students for college and careers with a wide range of courses, including honors and Advanced Placement options. Students can participate in various clubs, sports, and leadership opportunities.</p>
+            </li>
+            <li class="program-item" id="ap">
+                <strong>Advanced Placement (AP):</strong> Courses for college credit
+                <p>AP courses offer college-level curricula and exams to high school students. Students can earn college credit and demonstrate their readiness for higher education.</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container testimonials" id="testimonials">
+        <h2>Testimonials</h2>
+        <p>"Great Value Academy has been a wonderful experience for my child. The teachers are amazing and the curriculum is challenging and engaging." - Parent A</p>
+        <p>"My child loves going to school every day. The staff is supportive and the environment is nurturing." - Parent B</p>
+    </div>
+
+    <div class="container events-calendar" id="events">
+        <h2>Upcoming Events</h2>
+        <ul>
+            <li>Science Fair - August 15, 2024</li>
+            <li>Back to School Night - September 5, 2024</li>
+            <li>Fall Festival - October 20, 2024</li>
+            <li>Winter Concert - December 12, 2024</li>
+        </ul>
+    </div>
+
+    <div class="container faq-section" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-question">What is the school’s approach to learning?</div>
+            <div class="faq-answer">We focus on a balanced approach to education, combining rigorous academics with creative arts and physical education to support the development of well-rounded students.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">How can I schedule a tour of the school?</div>
+            <div class="faq-answer">Please contact our admissions office to schedule a tour. We are happy to show you around and answer any questions you may have.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">What extracurricular activities are available?</div>
+            <div class="faq-answer">We offer a range of extracurricular activities including sports teams, music and drama clubs, and academic competitions.</div>
+        </div>
+    </div>
+
+    <div class="container newsletter-form" id="newsletter">
+        <h2>Sign Up for Our Newsletter</h2>
+        <form>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <button type="submit">Subscribe</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="container" id="form">
+        <h2>Request More Information</h2>
+        <form id="info-request-form">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone">
+            </div>
+            <div>
+                <label for="program">Interested Program:</label>
+                <select id="program" name="program">
+                    <option value="elementary">Elementary School</option>
+                    <option value="middle">Middle School</option>
+                    <option value="high">High School</option>
+                    <option value="ap">Advanced Placement (AP)</option>
+                </select>
+            </div>
+            <div>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+            <div>
+                <button type="submit">Submit Request</button>
+            </div>
+            <div id="form-error" class="error">Please fill out all required fields.</div>
+        </form>
+    </div>
+
+    <div class="container map" id="map">
+        <h2>Find Us</h2>
+        <p>Our school is located at Latino Avenue, Kitui City, 635-90200.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Great Value Academy School</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ toggle functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+
+            // Form submission handling
+            const form = document.getElementById('info-request-form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                const name = form.querySelector('#name').value;
+                const email = form.querySelector('#email').value;
+                if (name && email) {
+                    alert('Thank you for your request, ' + name + '! We will get back to you soon.');
+                    form.reset();
+                } else {
+                    document.getElementById('form-error').style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
