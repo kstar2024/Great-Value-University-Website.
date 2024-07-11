@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School News - Great Value Academy School</title>
+    <style>
+        /* CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #45a049;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        main section {
+            margin-bottom: 2rem;
+        }
+
+        main section h2 {
+            color: #4CAF50;
+        }
+
+        .news-list {
+            margin-bottom: 2rem;
+        }
+
+        .news-item {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .news-item h3 {
+            margin: 0;
+            color: #333;
+        }
+
+        .news-item p {
+            margin: 0.5rem 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        form input, form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        .faq-section {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .faq-section h3 {
+            margin-top: 0;
+        }
+
+        .toggle-section {
+            cursor: pointer;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .toggle-section + div {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Grea.png" alt="Great Value Academy School Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="academyweb.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="parents.html">Parents' Portal</a></li>
+                    <li><a href="grades.html">Grades</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="attendance.html">Attendance</a></li>
+                    <li><a href="fee-payment.html">Fee Payment</a></li>
+                    <li><a href="class-schedules.html">Class Schedules</a></li>
+                    <li><a href="extracurricular.html">Extracurricular Activities</a></li>
+                    <li><a href="meeting-schedule.html">Meeting Schedule</a></li>
+                    <li><a href="health-records.html">Health Records</a></li>
+                    <li><a href="school-news.html" class="active">School News</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="news-list">
+                <h2>School News</h2>
+                <p>Stay updated with the latest news and events happening at Great Value Academy School.</p>
+                <div class="news-list">
+                    <div class="news-item">
+                        <h3>Welcome Back to School!</h3>
+                        <p><strong>Date:</strong> July 1, 2024</p>
+                        <p>We are excited to welcome students back for the new academic year! Our teachers and staff have been preparing for a fantastic year ahead.</p>
+                    </div>
+                    <div class="news-item">
+                        <h3>Summer Camp Success</h3>
+                        <p><strong>Date:</strong> June 25, 2024</p>
+                        <p>Our summer camp was a great success! Students participated in a variety of activities and had a lot of fun. Thank you to everyone who made it possible!</p>
+                    </div>
+                    <div class="news-item">
+                        <h3>New Curriculum for 2024</h3>
+                        <p><strong>Date:</strong> June 15, 2024</p>
+                        <p>We are pleased to announce that we have introduced a new curriculum for the 2024 academic year. It includes updated subjects and enhanced learning materials.</p>
+                    </div>
+                    <div class="news-item">
+                        <h3>Parent-Teacher Conferences</h3>
+                        <p><strong>Date:</strong> May 30, 2024</p>
+                        <p>Parent-teacher conferences will be held on June 5th and 6th. Please check your email for the schedule and appointment details.</p>
+                    </div>
+                    <!-- Add more news items as needed -->
+                </div>
+            </section>
+
+            <section id="submit-news">
+                <h2>Submit News or Announcements</h2>
+                <form id="news-form">
+                    <label for="news-title">News Title:</label>
+                    <input type="text" id="news-title" name="news-title" required>
+
+                    <label for="news-date">Date:</label>
+                    <input type="date" id="news-date" name="news-date" required>
+
+                    <label for="news-content">Content:</label>
+                    <textarea id="news-content" name="news-content" rows="4" required></textarea>
+
+                    <button type="submit">Submit News</button>
+                </form>
+            </section>
+
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-section">
+                    <div class="toggle-section" onclick="toggleSection('faq1')">
+                        <h3>How can I stay updated with school news?</h3>
+                    </div>
+                    <div id="faq1">
+                        <p>You can stay updated with school news by visiting this page regularly. You can also follow us on social media for updates.</p>
+                    </div>
+                    <div class="toggle-section" onclick="toggleSection('faq2')">
+                        <h3>Can I submit news or announcements for the school?</h3>
+                    </div>
+                    <div id="faq2">
+                        <p>Yes, you can submit news or announcements using the form above. Your submission will be reviewed before being published.</p>
+                    </div>
+                    <div class="toggle-section" onclick="toggleSection('faq3')">
+                        <h3>Who can submit news or announcements?</h3>
+                    </div>
+                    <div id="faq3">
+                        <p>Parents, staff, and students are encouraged to submit news or announcements. Please use the form provided to share updates with the school community.</p>
+                    </div>
+                    <div class="toggle-section" onclick="toggleSection('faq4')">
+                        <h3>How long does it take for a news submission to be published?</h3>
+                    </div>
+                    <div id="faq4">
+                        <p>News submissions are reviewed by the school administration. The review process usually takes 2-3 business days before the news is published.</p>
+                    </div>
+                    <div class="toggle-section" onclick="toggleSection('faq5')">
+                      <div class="toggle-section" onclick="toggleSection('faq5')">
+                        <h3>Can I edit or delete my news submission?</h3>
+                    </div>
+                    <div id="faq5">
+                        <p>Once a news submission is published, it cannot be edited or deleted by the submitter. If you need changes, please contact the school administration.</p>
+                    </div>
+                    <div class="toggle-section" onclick="toggleSection('faq6')">
+                        <h3>How do I contact the school administration?</h3>
+                    </div>
+                    <div id="faq6">
+                        <p>You can contact the school administration via the contact form on the <a href="contact.html">Contact</a> page or by calling the school office.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const newsForm = document.getElementById('news-form');
+            const faqSections = document.querySelectorAll('.toggle-section');
+
+            newsForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Implement form submission logic here
+                alert('News submission functionality is not yet implemented.');
+            });
+
+            function toggleSection(id) {
+                const section = document.getElementById(id);
+                if (section.style.display === "none" || section.style.display === "") {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
+            }
+
+            faqSections.forEach(section => {
+                section.addEventListener('click', () => {
+                    const targetId = section.getAttribute('onclick').match(/'(.*?)'/)[1];
+                    toggleSection(targetId);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+                        

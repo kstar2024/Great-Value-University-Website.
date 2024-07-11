@@ -5,6 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parents Portal</title>
     <style>
+        .login-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .login-container h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .login-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background-color: #45a049;
+        }
+        .login-error {
+            color: red;
+            margin-bottom: 10px;
+        }
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -97,6 +132,16 @@
     </style>
 </head>
 <body>
+    <div class="login-container" id="loginContainer">
+        <h2>Login</h2>
+        <form class="login-form" id="loginForm">
+            <div class="login-error" id="loginError"></div>
+            <input type="text" id="username" placeholder="Username" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
     <div class="header">
         <h1>Welcome to the Parents Portal</h1>
     </div>
@@ -277,289 +322,308 @@
   </div>
 
   <script>
-      document.getElementById('searchForm').addEventListener('submit', function(e) {
-          e.preventDefault();
-          const studentNameOrId = document.getElementById('studentNameOrId').value;
+      // Mock data for demonstration purposes
+const mockStudentData = {
+    name: 'John Doe',
+    grade: '8',
+    class: '8A'
+};
 
-          // Clear previous search results
-          document.getElementById('studentInfo').classList.add('hidden');
-          document.getElementById('attendanceRecords').classList.add('hidden');
-          document.getElementById('recentActivities').classList.add('hidden');
-          document.getElementById('upcomingEvents').classList.add('hidden');
-          document.getElementById('announcements').classList.add('hidden');
-          document.getElementById('gradeReport').classList.add('hidden');
-          document.getElementById('homeworkAssignments').classList.add('hidden');
-          document.getElementById('schoolCalendar').classList.add('hidden');
-          document.getElementById('bookStatus').classList.add('hidden');
-          document.getElementById('extracurricularActivities').classList.add('hidden');
-          document.getElementById('notifications').classList.add('hidden');
-          document.getElementById('healthRecords').classList.add('hidden');
-          document.getElementById('behaviorReports').classList.add('hidden');
-          document.getElementById('achievements').classList.add('hidden');
-          document.getElementById('volunteerWork').classList.add('hidden');
-          document.getElementById('announcementArchive').classList.add('hidden');
-          document.getElementById('deadlines').classList.add('hidden');
-          document.getElementById('schoolPolicies').classList.add('hidden');
+const mockAttendanceData = [
+    { date: '2024-07-01', status: 'Present' },
+    { date: '2024-07-02', status: 'Absent' },
+    { date: '2024-07-03', status: 'Present' }
+];
 
-          // Fetch student data based on search criteria (mock data for demonstration)
-          // Replace this with actual API calls
-          const studentData = fetchStudentData(studentNameOrId);
+const mockRecentActivities = [
+    'Math Test on 2024-07-01',
+    'Science Project Due on 2024-07-05',
+    'Parent-Teacher Meeting on 2024-07-10'
+];
 
-          if (studentData) {
-              document.getElementById('studentInfo').classList.remove('hidden');
-              document.getElementById('studentNameDisplay').textContent = studentData.name;
-              document.getElementById('studentGradeDisplay').textContent = studentData.grade;
-              document.getElementById('studentClassDisplay').textContent = studentData.class;
+const mockUpcomingEvents = [
+    'School Play on 2024-08-01',
+    'Field Trip on 2024-08-15'
+];
 
-              document.getElementById('attendanceRecords').classList.remove('hidden');
-              populateAttendanceRecords(studentData.attendanceRecords);
+const mockAnnouncements = 'Reminder: School will be closed on 2024-07-15 for maintenance.';
 
-              document.getElementById('recentActivities').classList.remove('hidden');
-              populateRecentActivities(studentData.recentActivities);
+const mockGradeReport = [
+    { subject: 'Math', grade: 'A', comments: 'Excellent performance' },
+    { subject: 'Science', grade: 'B+', comments: 'Good effort' }
+];
 
-              document.getElementById('upcomingEvents').classList.remove('hidden');
-              populateUpcomingEvents(studentData.upcomingEvents);
+const mockHomeworkAssignments = [
+    'Math Homework: Chapter 5 Exercises',
+    'Science Homework: Write a report on the solar system'
+];
 
-              document.getElementById('announcements').classList.remove('hidden');
-              document.getElementById('announcementContent').textContent = studentData.announcements;
+const mockSchoolCalendar = [
+    'July 2024: Summer Holidays',
+    'August 2024: New Academic Year Begins'
+];
 
-              document.getElementById('gradeReport').classList.remove('hidden');
-              populateGradeReport(studentData.gradeReport);
+const mockBookStatus = [
+    { title: 'Math Textbook', author: 'John Smith', status: 'Checked Out', dueDate: '2024-07-30' },
+    { title: 'Science Textbook', author: 'Jane Doe', status: 'Available', dueDate: '' }
+];
 
-              document.getElementById('homeworkAssignments').classList.remove('hidden');
-              populateHomeworkAssignments(studentData.homeworkAssignments);
+const mockExtracurricularActivities = [
+    'Football Club',
+    'Art Club',
+    'Music Band'
+];
 
-              document.getElementById('schoolCalendar').classList.remove('hidden');
-              populateSchoolCalendar(studentData.schoolCalendar);
+const mockNotifications = [
+    'New Assignment Posted for Science.',
+    'Parent-Teacher Meeting Scheduled for 2024-07-10.'
+];
 
-              document.getElementById('bookStatus').classList.remove('hidden');
-              populateBookStatus(studentData.bookStatus);
+const mockHealthRecords = [
+    { date: '2024-06-15', issue: 'Allergy', treatment: 'Antihistamines', followUp: '2024-07-15' }
+];
 
-              document.getElementById('extracurricularActivities').classList.remove('hidden');
-              populateExtracurricularActivities(studentData.extracurricularActivities);
+const mockBehaviorReports = [
+    { date: '2024-06-30', incident: 'Disruptive Behavior', action: 'Warning', comments: 'Needs improvement.' }
+];
 
-              document.getElementById('notifications').classList.remove('hidden');
-              populateNotifications(studentData.notifications);
+const mockAchievements = [
+    'Won 1st Place in Science Fair',
+    'Participated in Math Olympiad'
+];
 
-              document.getElementById('healthRecords').classList.remove('hidden');
-              populateHealthRecords(studentData.healthRecords);
+const mockVolunteerWork = [
+    'Volunteered at Local Community Center',
+    'Helped Organize School Book Drive'
+];
 
-              document.getElementById('behaviorReports').classList.remove('hidden');
-              populateBehaviorReports(studentData.behaviorReports);
+const mockAnnouncementArchive = [
+    { date: '2024-06-01', announcement: 'Summer Break Starts' },
+    { date: '2024-05-15', announcement: 'Exam Results Announced' }
+];
 
-              document.getElementById('achievements').classList.remove('hidden');
-              populateAchievements(studentData.achievements);
+const mockDeadlines = [
+    { assignment: 'Math Homework', dueDate: '2024-07-05' },
+    { assignment: 'Science Project', dueDate: '2024-07-10' }
+];
 
-              document.getElementById('volunteerWork').classList.remove('hidden');
-              populateVolunteerWork(studentData.volunteerWork);
+const mockSchoolPolicies = [
+    'Policy 1: Attendance',
+    'Policy 2: Dress Code',
+    'Policy 3: Code of Conduct'
+];
 
-              document.getElementById('announcementArchive').classList.remove('hidden');
-              populateAnnouncementArchive(studentData.announcementArchive);
+// Function to validate login credentials
+function validateLogin(username, password) {
+    // Replace with actual authentication logic
+    return username === 'admin' && password === 'password';
+}
 
-              document.getElementById('deadlines').classList.remove('hidden');
-              populateDeadlines(studentData.deadlines);
+// Event listener for the login form submission
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const loginError = document.getElementById('loginError');
 
-              document.getElementById('schoolPolicies').classList.remove('hidden');
-              populateSchoolPolicies(studentData.schoolPolicies);
-          } else {
-              alert('Student not found');
-          }
-      });
+    if (validateLogin(username, password)) {
+        // Show the main content
+        document.getElementById('loginContainer').classList.add('hidden');
+        document.getElementById('header').classList.remove('hidden');
+        document.getElementById('container').classList.remove('hidden');
 
-      // Mock function to fetch student data
-      function fetchStudentData(nameOrId) {
-          // Replace with actual data fetching logic
-          const mockData = {
-              name: 'John Doe',
-              grade: '10',
-              class: 'A',
-              attendanceRecords: [
-                  { date: '2024-06-01', status: 'Present' },
-                  { date: '2024-06-02', status: 'Absent' }
-              ],
-              recentActivities: ['Participated in Science Fair', 'Completed Math Homework'],
-              upcomingEvents: ['School Play on July 15', 'Parent-Teacher Meeting on August 10'],
-              announcements: 'Summer break starts from June 15.',
-              gradeReport: [
-                  { subject: 'Math', grade: 'A', comments: 'Excellent' },
-                  { subject: 'Science', grade: 'B+', comments: 'Good' }
-              ],
-              homeworkAssignments: ['Math Assignment 1', 'Science Project'],
-              schoolCalendar: ['School Starts on September 1', 'Winter Break from December 20'],
-              bookStatus: [
-                  { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', status: 'Returned', dueDate: '' },
-                  { title: 'To Kill a Mockingbird', author: 'Harper Lee', status: 'Checked Out', dueDate: '2024-07-15' }
-              ],
-              extracurricularActivities: ['Soccer Team', 'Debate Club'],
-              notifications: ['Parent-Teacher Meeting on August 10'],
-              healthRecords: [
-                  { date: '2024-01-10', healthIssue: 'Cold', treatment: 'Medication', followUpDate: '2024-02-10' },
-                  { date: '2024-04-15', healthIssue: 'Allergy', treatment: 'Medication', followUpDate: '2024-05-15' }
-              ],
-              behaviorReports: [
-                  { date: '2024-05-01', incident: 'Late to Class', actionTaken: 'Warning', comments: 'Need to improve punctuality' },
-                  { date: '2024-05-10', incident: 'Disruptive Behavior', actionTaken: 'Meeting with Parents', comments: 'Discussed behavior issues' }
-              ],
-              achievements: ['Won Math Olympiad', 'Best Speaker Award'],
-              volunteerWork: ['Volunteered at Community Food Drive', 'Participated in Tree Planting'],
-              announcementArchive: [
-                  { date: '2024-01-10', announcement: 'New Semester Starts' },
-                  { date: '2024-03-15', announcement: 'Spring Break Announced' }
-              ],
-              deadlines: [
-                  { assignment: 'Science Project', dueDate: '2024-07-10' },
-                  { assignment: 'Math Homework', dueDate: '2024-06-20' }
-              ],
-              schoolPolicies: ['Policy on Attendance', 'Guidelines for Homework Submission']
-          };
-          // Example: return mockData for all queries
-          return mockData;
-      }
+        // Populate the portal content
+        populatePortalContent();
+    } else {
+        loginError.textContent = 'Invalid username or password. Please try again.';
+    }
+});
 
-      // Mock function to populate data
-      function populateAttendanceRecords(records) {
-          const tableBody = document.getElementById('attendanceList');
-          tableBody.innerHTML = '';
-          records.forEach(record => {
-              const row = `<tr><td>${record.date}</td><td>${record.status}</td></tr>`;
-              tableBody.innerHTML += row;
-          });
-      }
+// Function to populate the portal content
+function populatePortalContent() {
+    // Display student info
+    document.getElementById('studentNameDisplay').textContent = mockStudentData.name;
+    document.getElementById('studentGradeDisplay').textContent = mockStudentData.grade;
+    document.getElementById('studentClassDisplay').textContent = mockStudentData.class;
 
-      function populateRecentActivities(activities) {
-          const list = document.getElementById('recentActivitiesList');
-          list.innerHTML = '';
-          activities.forEach(activity => {
-              const listItem = `<li>${activity}</li>`;
-              list.innerHTML += listItem;
-          });
-      }
+    // Display attendance records
+    const attendanceList = document.getElementById('attendanceList');
+    mockAttendanceData.forEach(record => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${record.date}</td><td>${record.status}</td>`;
+        attendanceList.appendChild(row);
+    });
+    document.getElementById('attendanceRecords').classList.remove('hidden');
 
-      function populateUpcomingEvents(events) {
-          const list = document.getElementById('upcomingEventsList');
-          list.innerHTML = '';
-          events.forEach(event => {
-              const listItem = `<li>${event}</li>`;
-              list.innerHTML += listItem;
-          });
-      }
+    // Display recent activities
+    const recentActivitiesList = document.getElementById('recentActivitiesList');
+    mockRecentActivities.forEach(activity => {
+        const listItem = document.createElement('li');
+        listItem.textContent = activity;
+        recentActivitiesList.appendChild(listItem);
+    });
+    document.getElementById('recentActivities').classList.remove('hidden');
 
-      function populateGradeReport(grades) {
-          const tableBody = document.getElementById('gradeList');
-          tableBody.innerHTML = '';
-          grades.forEach(grade => {
-              const row = `<tr><td>${grade.subject}</td><td>${grade.grade}</td><td>${grade.comments}</td></tr>`;
-              tableBody.innerHTML += row;
-          });
-      }
+    // Display upcoming events
+    const upcomingEventsList = document.getElementById('upcomingEventsList');
+    mockUpcomingEvents.forEach(event => {
+        const listItem = document.createElement('li');
+        listItem.textContent = event;
+        upcomingEventsList.appendChild(listItem);
+    });
+    document.getElementById('upcomingEvents').classList.remove('hidden');
 
-      function populateHomeworkAssignments(assignments) {
-          const list = document.getElementById('homeworkList');
-          list.innerHTML = '';
-          assignments.forEach(assignment => {
-              const listItem = `<li>${assignment}</li>`;
-              list.innerHTML += listItem;
-          });
-      }
+    // Display announcements
+    document.getElementById('announcementContent').textContent = mockAnnouncements;
+    document.getElementById('announcements').classList.remove('hidden');
 
-      function populateSchoolCalendar(events) {
-          const list = document.getElementById('calendarList');
-          list.innerHTML = '';
-          events.forEach(event => {
-              const listItem = `<li>${event}</li>`;
-              list.innerHTML += listItem;
-          });
-      }
+    // Display grade report
+    const gradeList = document.getElementById('gradeList');
+    mockGradeReport.forEach(grade => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${grade.subject}</td><td>${grade.grade}</td><td>${grade.comments}</td>`;
+        gradeList.appendChild(row);
+    });
+    document.getElementById('gradeReport').classList.remove('hidden');
 
-      function populateBookStatus(books) {
-          const tableBody = document.getElementById('bookStatusList');
-          tableBody.innerHTML = '';
-          books.forEach(book => {
-              const row = `<tr><td>${book.title}</td><td>${book.author}</td><td>${book.status}</td><td>${book.dueDate}</td></tr>`;
-              tableBody.innerHTML += row;
-          });
-      }
+    // Display homework assignments
+    const homeworkList = document.getElementById('homeworkList');
+    mockHomeworkAssignments.forEach(assignment => {
+        const listItem = document.createElement('li');
+        listItem.textContent = assignment;
+        homeworkList.appendChild(listItem);
+    });
+    document.getElementById('homeworkAssignments').classList.remove('hidden');
 
-      function populateExtracurricularActivities(activities) {
-          const list = document.getElementById('extracurricularList');
-          list.innerHTML = '';
-          activities.forEach(activity => {
-              const listItem = `<li>${activity}</li>`;
-              list.innerHTML += listItem;
-          });
-      }
+    // Display school calendar
+    const calendarList = document.getElementById('calendarList');
+    mockSchoolCalendar.forEach(event => {
+        const listItem = document.createElement('li');
+        listItem.textContent = event;
+        calendarList.appendChild(listItem);
+    });
+    document.getElementById('schoolCalendar').classList.remove('hidden');
 
-      function populateNotifications(notifications) {
-          const list = document.getElementById('notificationList');
-          list.innerHTML = '';
-          notifications.forEach(notification => {
-              const listItem = `<li>${notification}</li>`;
-              list.innerHTML += listItem;
-          });
-      }
+    // Display library book status
+    const bookStatusList = document.getElementById('bookStatusList');
+    mockBookStatus.forEach(book => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${book.title}</td><td>${book.author}</td><td>${book.status}</td><td>${book.dueDate}</td>`;
+        bookStatusList.appendChild(row);
+    });
+    document.getElementById('bookStatus').classList.remove('hidden');
 
-      function populateHealthRecords(records) {
-          const tableBody = document.getElementById('healthRecordList');
-          tableBody.innerHTML = '';
-          records.forEach(record => {
-              const row = `<tr><td>${record.date}</td><td>${record.healthIssue}</td><td>${record.treatment}</td><td>${record.followUpDate}</td></tr>`;
-              tableBody.innerHTML += row;
-          });
-      }
+    // Display extracurricular activities
+    const extracurricularList = document.getElementById('extracurricularList');
+    mockExtracurricularActivities.forEach(activity => {
+        const listItem = document.createElement('li');
+        listItem.textContent = activity;
+        extracurricularList.appendChild(listItem);
+    });
+    document.getElementById('extracurricularActivities').classList.remove('hidden');
 
-      function populateBehaviorReports(reports) {
-          const tableBody = document.getElementById('behaviorReportList');
-          tableBody.innerHTML = '';
-          reports.forEach(report => {
-              const row = `<tr><td>${report.date}</td><td>${report.incident}</td><td>${report.actionTaken}</td><td>${report.comments}</td></tr>`;
-              tableBody.innerHTML += row;
-          });
-      }
+    // Display notifications
+    const notificationList = document.getElementById('notificationList');
+    mockNotifications.forEach(notification => {
+        const listItem = document.createElement('li');
+        listItem.textContent = notification;
+        notificationList.appendChild(listItem);
+    });
+    document.getElementById('notifications').classList.remove('hidden');
 
-      function populateAchievements(achievements) {
-          const list = document.getElementById('achievementList');
-          list.innerHTML = '';
-          achievements.forEach(achievement => {
-              const listItem = `<li>${achievement}</li>`;
-              list.innerHTML += listItem;
-          });
-      }
+    // Display health records
+    const healthRecordList = document.getElementById('healthRecordList');
+    mockHealthRecords.forEach(record => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${record.date}</td><td>${record.issue}</td><td>${record.treatment}</td><td>${record.followUp}</td>`;
+        healthRecordList.appendChild(row);
+    });
+    document.getElementById('healthRecords').classList.remove('hidden');
 
-      function populateVolunteerWork(works) {
-          const list = document.getElementById('volunteerList');
-          list.innerHTML = '';
-          works.forEach(work => {
-              const listItem = `<li>${work}</li>`;
-              list.innerHTML += listItem;
-          });
-      }
+    // Display behavior reports
+    const behaviorReportList = document.getElementById('behaviorReportList');
+    mockBehaviorReports.forEach(report => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${report.date}</td><td>${report.incident}</td><td>${report.action}</td><td>${report.comments}</td>`;
+        behaviorReportList.appendChild(row);
+    });
+    document.getElementById('behaviorReports').classList.remove('hidden');
 
-      function populateAnnouncementArchive(announcements) {
-          const tableBody = document.getElementById('announcementArchiveList');
-          tableBody.innerHTML = '';
-          announcements.forEach(announcement => {
-              const row = `<tr><td>${announcement.date}</td><td>${announcement.announcement}</td></tr>`;
-              tableBody.innerHTML += row;
-          });
-      }
+    // Display achievements
+    const achievementList = document.getElementById('achievementList');
+    mockAchievements.forEach(achievement => {
+        const listItem = document.createElement('li');
+        listItem.textContent = achievement;
+        achievementList.appendChild(listItem);
+    });
+    document.getElementById('achievements').classList.remove('hidden');
 
-      function populateDeadlines(deadlines) {
-          const tableBody = document.getElementById('deadlineList');
-          tableBody.innerHTML = '';
-          deadlines.forEach(deadline => {
-              const row = `<tr><td>${deadline.assignment}</td><td>${deadline.dueDate}</td></tr>`;
-              tableBody.innerHTML += row;
-          });
-      }
+    // Display volunteer work
+    const volunteerList = document.getElementById('volunteerList');
+    mockVolunteerWork.forEach(work => {
+        const listItem = document.createElement('li');
+        listItem.textContent = work;
+        volunteerList.appendChild(listItem);
+    });
+    document.getElementById('volunteerWork').classList.remove('hidden');
 
-      function populateSchoolPolicies(policies) {
-          const list = document.getElementById('policyList');
-          list.innerHTML = '';
-          policies.forEach(policy => {
-              const listItem = `<li>${policy}</li>`;
-              list.innerHTML += listItem;
-          });
-      }
+    // Display announcement archive
+    const announcementArchiveList = document.getElementById('announcementArchiveList');
+    mockAnnouncementArchive.forEach(archive => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${archive.date}</td><td>${archive.announcement}</td>`;
+        announcementArchiveList.appendChild(row);
+    });
+    document.getElementById('announcementArchive').classList.remove('hidden');
+
+    // Display deadlines
+    const deadlineList = document.getElementById('deadlineList');
+    mockDeadlines.forEach(deadline => {
+        const row = document.createElement('tr');
+        row.innerHTML = `<td>${deadline.assignment}</td><td>${deadline.dueDate}</td>`;
+        deadlineList.appendChild(row);
+    });
+    document.getElementById('deadlines').classList.remove('hidden');
+
+    // Display school policies
+    const policyList = document.getElementById('policyList');
+    mockSchoolPolicies.forEach(policy => {
+        const listItem = document.createElement('li');
+        listItem.textContent = policy;
+        policyList.appendChild(listItem);
+    });
+    document.getElementById('schoolPolicies').classList.remove('hidden');
+}
+
+// Event listener for the search form submission
+document.getElementById('searchForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const query = document.getElementById('studentNameOrId').value.trim();
+
+    if (query === mockStudentData.name || query === '12345') { // Mock search condition
+        // Display student information
+        document.getElementById('studentNameDisplay').textContent = mockStudentData.name;
+        document.getElementById('studentGradeDisplay').textContent = mockStudentData.grade;
+        document.getElementById('studentClassDisplay').textContent = mockStudentData.class;
+        document.getElementById('studentInfo').classList.remove('hidden');
+    } else {
+        alert('Student not found.');
+    }
+});
+
+// Event listener for the feedback form submission
+document.querySelector('.feedback-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const feedback = document.getElementById('feedback').value;
+
+    if (feedback) {
+        alert('Thank you for your feedback!');
+        document.getElementById('feedback').value = ''; // Clear the form
+    } else {
+        alert('Please enter your feedback before submitting.');
+    }
+});
+
   </script>
 </body>
 </html>

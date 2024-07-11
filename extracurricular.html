@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extracurricular Activities - Great Value Academy School</title>
+    <style>
+        /* CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #45a049;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        main section {
+            margin-bottom: 2rem;
+        }
+
+        main section h2 {
+            color: #4CAF50;
+        }
+
+        .activity-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .activity-item {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .activity-item h3 {
+            margin-top: 0;
+            color: #4CAF50;
+        }
+
+        .activity-item p {
+            margin-bottom: 10px;
+        }
+
+        form {
+            margin-bottom: 2rem;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        form label {
+            margin-bottom: 0.5rem;
+        }
+
+        form input, form textarea, form select {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        .event-list {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .event-list h3 {
+            margin-bottom: 1rem;
+        }
+
+        .event-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .event-list ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .event-list ul li:last-child {
+            border-bottom: none;
+        }
+
+        .toggle-section {
+            cursor: pointer;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .toggle-section + div {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Grea.png" alt="Great Value Academy School Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="academyweb.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="parents.html">Parents' Portal</a></li>
+                    <li><a href="grades.html">Grades</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="attendance.html">Attendance</a></li>
+                    <li><a href="fee-payment.html">Fee Payment</a></li>
+                    <li><a href="class-schedules.html">Class Schedules</a></li>
+                    <li><a href="extracurricular.html" class="active">Extracurricular Activities</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="extracurricular-activities">
+                <h2>Extracurricular Activities</h2>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <h3>Sports</h3>
+                        <p>Join our sports teams including soccer, basketball, and track. Enhance your athletic skills and be part of a team!</p>
+                        <p><strong>Contact:</strong> sports@greatvalueacademy.com</p>
+                    </div>
+                    <div class="activity-item">
+                        <h3>Music</h3>
+                        <p>Explore your musical talent with our band, choir, and orchestra programs. Perform at school events and concerts!</p>
+                        <p><strong>Contact:</strong> music@greatvalueacademy.com</p>
+                    </div>
+                    <div class="activity-item">
+                        <h3>Art</h3>
+                        <p>Participate in various art workshops, including painting, drawing, and sculpture. Showcase your artwork in exhibitions!</p>
+                        <p><strong>Contact:</strong> art@greatvalueacademy.com</p>
+                    </div>
+                    <div class="activity-item">
+                        <h3>Drama</h3>
+                        <p>Join the drama club to perform in school plays, learn acting techniques, and express yourself through theater.</p>
+                        <p><strong>Contact:</strong> drama@greatvalueacademy.com</p>
+                    </div>
+                    <div class="activity-item">
+                        <h3>Science Club</h3>
+                        <p>Engage in exciting science experiments, participate in science fairs, and explore the wonders of science!</p>
+                        <p><strong>Contact:</strong> scienceclub@greatvalueacademy.com</p>
+                    </div>
+                    <div class="activity-item">
+                        <h3>Debate Team</h3>
+                        <p>Join the debate team to develop public speaking skills, engage in thought-provoking debates, and compete in tournaments.</p>
+                        <p><strong>Contact:</strong> debate@greatvalueacademy.com</p>
+                    </div>
+                    <!-- Add more activities as needed -->
+                </div>
+            </section>
+
+            <section id="register-activity">
+                <h2>Register for an Activity</h2>
+                <form id="register-form">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="activity">Select Activity:</label>
+                    <select id="activity" name="activity" required>
+                        <option value="">Select an activity</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Music">Music</option>
+                        <option value="Art">Art</option>
+                        <option value="Drama">Drama</option>
+                        <option value="Science Club">Science Club</option>
+                        <option value="Debate Team">Debate Team</option>
+                        <!-- Add more options as needed -->
+                    </select>
+
+                    <label for="comments">Additional Comments:</label>
+                    <textarea id="comments" name="comments" rows="4" placeholder="Any additional comments or questions"></textarea>
+
+                    <button type="submit">Register</button>
+                </form>
+            </section>
+
+            <section id="upcoming-events">
+                <h2>Upcoming Events</h2>
+                <div class="event-list">
+                    <h3>Extracurricular Events</h3>
+                    <ul>
+                        <li><strong>July 20, 2024:</strong> Summer Sports Tournament</li>
+                        <li><strong>August 10, 2024:</strong> Music Concert</li>
+                        <li><strong>September 15, 2024:</strong> Art Exhibition</li>
+                        <li><strong>October 25, 2024:</strong> Drama Club Play</li>
+                        <li
+                        <li><strong>November 5, 2024:</strong> Science Fair</li>
+                        <li><strong>December 12, 2024:</strong> Debate Tournament</li>
+                        <!-- Add more events as needed -->
+                    </ul>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="toggle-section" onclick="toggleSection('faq1')">
+                    <h3>How do I sign up for extracurricular activities?</h3>
+                </div>
+                <div id="faq1">
+                    <p>You can sign up for extracurricular activities using the registration form above or contact the respective activity coordinator.</p>
+                </div>
+                <div class="toggle-section" onclick="toggleSection('faq2')">
+                    <h3>Are there any fees for participating in extracurricular activities?</h3>
+                </div>
+                <div id="faq2">
+                    <p>Some activities may have associated fees for materials or events. Please check with the activity coordinator for details.</p>
+                </div>
+                <div class="toggle-section" onclick="toggleSection('faq3')">
+                    <h3>Can my child participate in more than one activity?</h3>
+                </div>
+                <div id="faq3">
+                    <p>Yes, students can participate in multiple activities as long as their schedule permits and they meet the requirements for each activity.</p>
+                </div>
+                <div class="toggle-section" onclick="toggleSection('faq4')">
+                    <h3>What if my child is interested in an activity not listed here?</h3>
+                </div>
+                <div id="faq4">
+                    <p>If your child is interested in an activity not currently offered, please contact us at activities@greatvalueacademy.com with your suggestions.</p>
+                </div>
+                <div class="toggle-section" onclick="toggleSection('faq5')">
+                    <h3>How can I get more information about a specific activity?</h3>
+                </div>
+                <div id="faq5">
+                    <p>For more information about specific activities, please reach out to the contact email listed for each activity on this page.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const registerForm = document.getElementById('register-form');
+            const faqSections = document.querySelectorAll('.toggle-section');
+
+            registerForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Implement form submission logic here
+                alert('Registration functionality is not yet implemented.');
+            });
+
+            function toggleSection(id) {
+                const section = document.getElementById(id);
+                if (section.style.display === "none" || section.style.display === "") {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
+            }
+
+            faqSections.forEach(section => {
+                section.addEventListener('click', () => {
+                    const targetId = section.getAttribute('onclick').match(/'(.*?)'/)[1];
+                    toggleSection(targetId);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

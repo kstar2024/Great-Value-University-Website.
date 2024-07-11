@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parents' Portal - Great Value Academy School</title>
+    <style>
+        /* Merged CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #45a049;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        main section {
+            margin-bottom: 2rem;
+        }
+
+        main section h2 {
+            color: #4CAF50;
+        }
+
+        .announcement {
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .toggle-section {
+            cursor: pointer;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .toggle-section + div {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Grea.png" alt="Great Value Academy School Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="academyweb.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="announcements">
+                <h2>Announcements</h2>
+                <!-- Dynamic announcements will be loaded here -->
+            </section>
+
+            <section id="calendar">
+                <h2>School Calendar</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Event</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>August 25, 2024</td>
+                            <td>Back to School Night</td>
+                        </tr>
+                        <tr>
+                            <td>September 1, 2024</td>
+                            <td>First Day of School</td>
+                        </tr>
+                        <tr>
+                            <td>October 15, 2024</td>
+                            <td>Parent-Teacher Conferences</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="grades">
+                <h2>Student Grades</h2>
+                <p>Please log in to the <a href="grades.html">Student Information System</a> to view your child's grades and academic progress.</p>
+            </section>
+
+            <section id="assignments">
+                <h2>Assignments</h2>
+                <p>Keep track of your child's assignments and due dates. Please log in to the <a href="assignments.html">Assignment Portal</a> for detailed information.</p>
+            </section>
+
+            <section id="attendance">
+                <h2>Attendance</h2>
+                <p>View your child's attendance record. Please log in to the <a href="attendance.html">Attendance Portal</a> for detailed information.</p>
+            </section>
+
+            <section id="fee-payment">
+                <h2>Online Fee Payment</h2>
+                <p>Pay school fees online easily and securely. Please log in to the <a href="fee-payment.html">Fee Payment Portal</a> to proceed with payments.</p>
+            </section>
+
+            <section id="feedback">
+                <h2>Feedback and Concerns</h2>
+                <form id="feedback-form" action="submit_feedback.php" method="post">
+                    <label for="feedback-text">Your Feedback:</label><br>
+                    <textarea id="feedback-text" name="feedback-text" rows="4" cols="50"></textarea><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </section>
+
+            <section id="resources">
+                <h2>Resources</h2>
+                <ul>
+                    <li><a href="policies.html">School Policies</a></li>
+                    <li><a href="study-materials.html">Study Materials</a></li>
+                    <li><a href="parent-handbook.html">Parent Handbook</a></li>
+                </ul>
+            </section>
+
+            <section id="class-schedules">
+                <h2>Class Schedules</h2>
+                <p>View your child's daily and weekly class schedules. Please log in to the <a href="class-schedules.html">Class Schedules Portal</a> for detailed information.</p>
+            </section>
+
+            <section id="extracurricular">
+                <h2>Extracurricular Activities</h2>
+                <p>Explore the various clubs, sports, and extracurricular activities available for students. Please log in to the <a href="extracurricular.html">Extracurricular Activities Portal</a> for more details.</p>
+            </section>
+
+            <section id="meeting-schedule">
+                <h2>Parent-Teacher Meeting Scheduling</h2>
+                <p>Schedule meetings with your child's teachers easily. Please log in to the <a href="meeting-schedule.html">Meeting Scheduling Portal</a> to book a time.</p>
+            </section>
+
+            <section id="health-records">
+                <h2>Health Records</h2>
+                <p>Track and manage your child's health and immunization records. Please log in to the <a href="health-records.html">Health Records Portal</a> for detailed information.</p>
+            </section>
+
+            <section id="school-news">
+                <h2>School News</h2>
+                <p>Stay updated with the latest news and updates from Great Value Academy School. Please visit the <a href="school-news.html">School News Portal</a> for more information.</p>
+            </section>
+
+            <section id="cafeteria-menu">
+                <h2>School Cafeteria Menu</h2>
+                <p>Check out the weekly and monthly menus for the school cafeteria. Please visit the <a href="cafeteria-menu.html">Cafeteria Menu Portal</a> for more details.</p>
+            </section>
+
+            <section id="contact-teachers">
+                <h2>Contact Teachers</h2>
+                <p>If you need to reach out to your child's teacher, please use the contact information provided below:</p>
+                <ul>
+                    <li>Ms. Smith (Grade 1): <a href="mailto:smith@greatvalueacademy.com">smith@greatvalueacademy.com</a></li>
+                    <li>Mr. Johnson (Grade 2): <a href="mailto:johnson@greatvalueacademy.com">johnson@greatvalueacademy.com</a></li>
+                    <li>Mrs. Lee (Grade 3): <a href="mailto:lee@greatvalueacademy.com">lee@greatvalueacademy.com</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Merged JavaScript
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Announcements
+            const announcements = [
+                {
+                    title: "Back to School Night",
+                    content: "Join us on August 25th at 6 PM for our annual Back to School Night. Meet your child's teachers and learn more about what we have planned for the year."
+                },
+                {
+                    title: "Academic Trips Update",
+                    content: "will keep parents informed of any changes to our school schedule or protocols."
+                }
+            ];
+
+            const announcementsContainer = document.getElementById('announcements');
+
+            announcements.forEach(announcement => {
+                const announcementDiv = document.createElement('div');
+                announcementDiv.className = 'announcement';
+                
+                const announcementTitle = document.createElement('h3');
+                announcementTitle.textContent = announcement.title;
+                
+                const announcementContent = document.createElement('p');
+                announcementContent.textContent = announcement.content;
+                
+                announcementDiv.appendChild(announcementTitle);
+                announcementDiv.appendChild(announcementContent);
+                
+                announcementsContainer.appendChild(announcementDiv);
+            });
+
+            // Calendar
+            const calendarEvents = document.querySelectorAll("#calendar tbody tr");
+
+            calendarEvents.forEach(event => {
+                event.addEventListener("click", function() {
+                    alert(`Event: ${this.cells[1].textContent}\nDate: ${this.cells[0].textContent}`);
+                });
+            });
+
+            // Feedback form
+            const feedbackForm = document.getElementById('feedback-form');
+
+            feedbackForm.addEventListener('submit', function(event) {
+                const feedbackText = document.getElementById('feedback-text').value;
+
+                if (feedbackText.trim() === "") {
+                    alert("Feedback cannot be empty.");
+                    event.preventDefault();
+                }
+            });
+
+            // Toggle sections
+            const toggles = document.querySelectorAll('.toggle-section');
+
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    if (content.style.display === "none" || content.style.display === "") {
+                        content.style.display = "block";
+                    } else {
+                        content.style.display = "none";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

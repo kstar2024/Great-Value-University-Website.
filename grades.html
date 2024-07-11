@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grades - Great Value Academy School</title>
+    <style>
+        /* CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #45a049;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        main section {
+            margin-bottom: 2rem;
+        }
+
+        main section h2 {
+            color: #4CAF50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .toggle-section {
+            cursor: pointer;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .toggle-section + div {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Grea.png" alt="Great Value Academy School Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="academyweb.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="parents.html">Parents' Portal</a></li>
+                    <li><a href="grades.html" class="active">Grades</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="grades">
+                <h2>Student Grades</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Grade</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>A</td>
+                            <td>Excellent performance</td>
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td>B+</td>
+                            <td>Good understanding of concepts</td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td>A-</td>
+                            <td>Very good analytical skills</td>
+                        </tr>
+                        <tr>
+                            <td>History</td>
+                            <td>B</td>
+                            <td>Good grasp of historical events</td>
+                        </tr>
+                        <tr>
+                            <td>Physical Education</td>
+                            <td>A</td>
+                            <td>Excellent participation</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="grading-scale">
+                <h2>Grading Scale</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Grade</th>
+                            <th>Percentage Range</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A</td>
+                            <td>90-100%</td>
+                        </tr>
+                        <tr>
+                            <td>B+</td>
+                            <td>85-89%</td>
+                        </tr>
+                        <tr>
+                            <td>B</td>
+                            <td>80-84%</td>
+                        </tr>
+                        <tr>
+                            <td>C+</td>
+                            <td>75-79%</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>70-74%</td>
+                        </tr>
+                        <tr>
+                            <td>D</td>
+                            <td>65-69%</td>
+                        </tr>
+                        <tr>
+                            <td>F</td>
+                            <td>Below 65%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="teacher-comments">
+                <h2>Teacher Comments</h2>
+                <div class="toggle-section">Mathematics</div>
+                <div>John has shown great improvement in solving complex equations.</div>
+                <div class="toggle-section">Science</div>
+                <div>Susan needs to participate more in laboratory sessions.</div>
+                <div class="toggle-section">English</div>
+                <div>Tom's essays demonstrate a strong grasp of thematic analysis.</div>
+                <div class="toggle-section">History</div>
+                <div>Linda has a keen interest in ancient civilizations.</div>
+                <div class="toggle-section">Physical Education</div>
+                <div>Mike excels in team sports and shows excellent leadership qualities.</div>
+            </section>
+
+            <section id="grade-history">
+                <h2>Grade History</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Term</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>Fall 2023</td>
+                            <td>B+</td>
+                        </tr>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>Spring 2024</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td>Fall 2023</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td>Spring 2024</td>
+                            <td>B+</td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td>Fall 2023</td>
+                            <td>A-</td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td>Spring 2024</td>
+                            <td>A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript
+        document.addEventListener("DOMContentLoaded", function() {
+            // Toggle sections
+            const toggles = document.querySelectorAll('.toggle-section');
+
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    if (content.style.display === "none" || content.style.display === "") {
+                        content.style.display = "block";
+                    } else {
+                        content.style.display = "none";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

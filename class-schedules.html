@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Schedules - Great Value Academy School</title>
+    <style>
+        /* CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #45a049;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        main section {
+            margin-bottom: 2rem;
+        }
+
+        main section h2 {
+            color: #4CAF50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2rem;
+        }
+
+        form label {
+            margin-bottom: 0.5rem;
+        }
+
+        form select, form input[type="text"] {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        .event-list {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .event-list h3 {
+            margin-bottom: 1rem;
+        }
+
+        .event-list ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .event-list ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .event-list ul li:last-child {
+            border-bottom: none;
+        }
+
+        .toggle-section {
+            cursor: pointer;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .toggle-section + div {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Great Value Academy School Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="academyweb.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="parents.html">Parents' Portal</a></li>
+                    <li><a href="grades.html">Grades</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="attendance.html">Attendance</a></li>
+                    <li><a href="fee-payment.html">Fee Payment</a></li>
+                    <li><a href="class-schedules.html" class="active">Class Schedules</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="filter-schedules">
+                <h2>Class Schedules</h2>
+                <form id="filter-form">
+                    <label for="grade">Select Grade:</label>
+                    <select id="grade" name="grade">
+                        <option value="all">All Grades</option>
+                        <option value="grade1">Grade 1</option>
+                        <option value="grade2">Grade 2</option>
+                        <option value="grade3">Grade 3</option>
+                        <option value="grade4">Grade 4</option>
+                        <option value="grade5">Grade 5</option>
+                        <option value="grade6">Grade 6</option>
+                        <!-- Add more grades as needed -->
+                    </select>
+
+                    <label for="subject">Select Subject:</label>
+                    <select id="subject" name="subject">
+                        <option value="all">All Subjects</option>
+                        <option value="math">Math</option>
+                        <option value="science">Science</option>
+                        <option value="english">English</option>
+                        <option value="history">History</option>
+                        <option value="geography">Geography</option>
+                        <option value="art">Art</option>
+                        <!-- Add more subjects as needed -->
+                    </select>
+
+                    <button type="submit">Filter Schedules</button>
+                </form>
+                <table id="schedule-table">
+                    <thead>
+                        <tr>
+                            <th>Grade</th>
+                            <th>Subject</th>
+                            <th>Teacher</th>
+                            <th>Day</th>
+                            <th>Time</th>
+                            <th>Room</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample Data -->
+                        <tr>
+                            <td>Grade 1</td>
+                            <td>Math</td>
+                            <td>Ms. Smith</td>
+                            <td>Monday</td>
+                            <td>9:00 AM - 10:00 AM</td>
+                            <td>Room 101</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 2</td>
+                            <td>Science</td>
+                            <td>Mr. Johnson</td>
+                            <td>Tuesday</td>
+                            <td>10:00 AM - 11:00 AM</td>
+                            <td>Room 102</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 3</td>
+                            <td>English</td>
+                            <td>Ms. Davis</td>
+                            <td>Wednesday</td>
+                            <td>11:00 AM - 12:00 PM</td>
+                            <td>Room 103</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 4</td>
+                            <td>History</td>
+                            <td>Mr. Brown</td>
+                            <td>Thursday</td>
+                            <td>1:00 PM - 2:00 PM</td>
+                            <td>Room 104</td>
+                        </tr>
+                        <tr>
+                            <td>Grade 5</td>
+                            <td>Geography</td>
+                            <td>Ms. Wilson</td>
+                            <td>Friday</td>
+                            <td>2:00 PM - 3:00 PM</td>
+                            <td>Room 105</td>
+                        </tr>
+                        <!-- More rows can be added here -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="upcoming-events">
+                <h2>Upcoming Events</h2>
+                <div class="event-list">
+                    <h3>Events</h3>
+                    <ul>
+                        <li><strong>July 15, 2024:</strong> Summer Camp Starts</li>
+                        <li><strong>August 1, 2024:</strong> New School Year Begins</li>
+                        <li><strong>September 5, 2024:</strong> Parent-Teacher Conferences</li>
+                        <li><strong>October 10, 2024:</strong> School Sports Day</li>
+                        <li><strong>December 20, 2024:</strong> Winter Break Begins</li>
+                        <!-- Add more events as needed -->
+                    </ul>
+                </div>
+            </section>
+
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="toggle-section" onclick="toggleSection('faq1')">
+                    <h3>How can I view the class schedule for a specific grade?</h3>
+                </div>
+                <div id="faq1">
+                    <p>You can filter the class schedules by grade using the filter options above.</p>
+                </div>
+                <div class="toggle-section" onclick="toggleSection('faq2')">
+                    <h3>Where can I find the schedule for extracurricular activities?</h3>
+                </div>
+                <div id="faq2">
+                    <p>Extracurricular activity schedules will be posted in the “Upcoming Events” section on this page.</p>
+                </div>
+                <div class="toggle-section" onclick="toggleSection('faq3')">
+                    <h3>How can I contact a teacher if I have questions about the class schedule?</h3>
+                </div>
+                <div id="faq3">
+                    <p>You can contact teachers via the "Contact" page on the website or through your child’s grade coordinator.</p>
+                </div>
+                <div class="toggle-section" onclick="toggleSection('faq4')">
+                    <h3>What should I do if there are discrepancies in the schedule?</h3>
+                </div>
+                <div id="faq4">
+                    <p>If you notice any discrepancies, please contact the school administration at admin@greatvalueacademy.com.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const filterForm = document.getElementById('filter-form');
+            const scheduleTable = document.getElementById('schedule-table');
+            const faqSections = document.querySelectorAll('.toggle-section');
+
+            filterForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Implement the filtering logic here
+                alert('Filter functionality is not yet implemented.');
+            });
+
+            function toggleSection(id) {
+                const section = document.getElementById(id);
+                if (section.style.display === "none" || section.style.display === "") {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
+            }
+
+            faqSections.forEach(section => {
+                section.addEventListener('click', () => {
+                    const targetId = section.getAttribute('onclick').match(/'(.*?)'/)[1];
+                    toggleSection(targetId);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

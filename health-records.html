@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Records - Great Value Academy School</title>
+    <style>
+        /* CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #45a049;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        main section {
+            margin-bottom: 2rem;
+        }
+
+        main section h2 {
+            color: #4CAF50;
+        }
+
+        .health-records-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        .health-records-table th, .health-records-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .health-records-table th {
+            background-color: #f2f2f2;
+        }
+
+        form {
+            margin-bottom: 2rem;
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        form input, form select, form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        .faq-section {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .faq-section h3 {
+            margin-top: 0;
+        }
+
+        .toggle-section {
+            cursor: pointer;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .toggle-section + div {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Grea.png" alt="Great Value Academy School Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="academyweb.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="parents.html">Parents' Portal</a></li>
+                    <li><a href="grades.html">Grades</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="attendance.html">Attendance</a></li>
+                    <li><a href="fee-payment.html">Fee Payment</a></li>
+                    <li><a href="class-schedules.html">Class Schedules</a></li>
+                    <li><a href="extracurricular.html">Extracurricular Activities</a></li>
+                    <li><a href="meeting-schedule.html">Meeting Schedule</a></li>
+                    <li><a href="health-records.html" class="active">Health Records</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="health-records">
+                <h2>Health Records</h2>
+                <p>Below you can view the health records for your child. Please ensure all records are up-to-date and complete.</p>
+                <table class="health-records-table">
+                    <thead>
+                        <tr>
+                            <th>Student Name</th>
+                            <th>Date of Birth</th>
+                            <th>Health Issue</th>
+                            <th>Medication</th>
+                            <th>Doctor's Name</th>
+                            <th>Contact</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>January 5, 2012</td>
+                            <td>Asthma</td>
+                            <td>Inhaler</td>
+                            <td>Dr. Smith</td>
+                            <td>(555) 123-4567</td>
+                            <td><a href="#">Update Record</a></td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>March 12, 2013</td>
+                            <td>Allergy</td>
+                            <td>Antihistamines</td>
+                            <td>Dr. Johnson</td>
+                            <td>(555) 234-5678</td>
+                            <td><a href="#">Update Record</a></td>
+                        </tr>
+                        <tr>
+                            <td>Michael Brown</td>
+                            <td>June 21, 2011</td>
+                            <td>Diabetes</td>
+                            <td>Insulin</td>
+                            <td>Dr. Williams</td>
+                            <td>(555) 345-6789</td>
+                            <td><a href="#">Update Record</a></td>
+                        </tr>
+                        <!-- Add more records as needed -->
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="submit-record">
+                <h2>Submit New Health Record</h2>
+                <form id="health-record-form">
+                    <label for="student-name">Student Name:</label>
+                    <input type="text" id="student-name" name="student-name" required>
+
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+
+                    <label for="health-issue">Health Issue:</label>
+                    <input type="text" id="health-issue" name="health-issue" required>
+
+                    <label for="medication">Medication:</label>
+                    <input type="text" id="medication" name="medication" required>
+
+                    <label for="doctor-name">Doctor's Name:</label>
+                    <input type="text" id="doctor-name" name="doctor-name" required>
+
+                    <label for="contact">Doctor's Contact:</label>
+                    <input type="text" id="contact" name="contact" required>
+
+                    <label for="additional-notes">Additional Notes:</label>
+                    <textarea id="additional-notes" name="additional-notes" rows="4" placeholder="Any additional information or notes"></textarea>
+
+                    <button type="submit">Submit Health Record</button>
+                </form>
+            </section>
+
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-section">
+                    <div class="toggle-section" onclick="toggleSection('faq1')">
+                        <h3>How can I view my child's health records?</h3>
+                    </div>
+                    <div id="faq1">
+                        <p>You can view your child's health records in the table provided on this page. If you have any concerns, please contact the school nurse.</p>
+                    </div>
+                    <div class="toggle-section" onclick="toggleSection('faq2')">
+                        <h3>How do I submit a new health record?</h3>
+                    </div>
+                    <div id="faq2">
+                        <p>To submit a new health record, please fill out the form above with the required details and click "Submit Health Record".</p>
+                    </div>
+                    <div class="toggle-section" onclick="toggleSection('faq3')">
+                        <
+                        <div class="toggle-section" onclick="toggleSection('faq3')">
+                          <h3>What should I include in the health record submission?</h3>
+                      </div>
+                      <div id="faq3">
+                          <p>Include your child's name, date of birth, any known health issues, current medications, doctor's name, and contact information. You can also add additional notes if necessary.</p>
+                      </div>
+                      <div class="toggle-section" onclick="toggleSection('faq4')">
+                          <h3>Can I update an existing health record?</h3>
+                      </div>
+                      <div id="faq4">
+                          <p>Yes, you can update an existing health record by contacting the school nurse or using the "Update Record" link next to your child’s record.</p>
+                      </div>
+                      <div class="toggle-section" onclick="toggleSection('faq5')">
+                          <h3>Who can access my child's health records?</h3>
+                      </div>
+                      <div id="faq5">
+                          <p>Health records are confidential and can only be accessed by authorized school personnel, including the school nurse and relevant administrative staff.</p>
+                      </div>
+                      <div class="toggle-section" onclick="toggleSection('faq6')">
+                          <h3>How often should health records be updated?</h3>
+                      </div>
+                      <div id="faq6">
+                          <p>Health records should be updated whenever there are significant changes to your child’s health status or medication. Please review and update records at least once a year.</p>
+                      </div>
+                  </div>
+              </section>
+          </div>
+      </main>
+  
+      <footer>
+          <div class="container">
+              <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+              <ul>
+                  <li><a href="privacy.html">Privacy Policy</a></li>
+                  <li><a href="terms.html">Terms of Service</a></li>
+              </ul>
+          </div>
+      </footer>
+  
+      <script>
+          // JavaScript
+  
+          document.addEventListener("DOMContentLoaded", function() {
+              const healthRecordForm = document.getElementById('health-record-form');
+              const faqSections = document.querySelectorAll('.toggle-section');
+  
+              healthRecordForm.addEventListener('submit', function(event) {
+                  event.preventDefault();
+                  // Implement form submission logic here
+                  alert('Health record submission functionality is not yet implemented.');
+              });
+  
+              function toggleSection(id) {
+                  const section = document.getElementById(id);
+                  if (section.style.display === "none" || section.style.display === "") {
+                      section.style.display = "block";
+                  } else {
+                      section.style.display = "none";
+                  }
+              }
+  
+              faqSections.forEach(section => {
+                  section.addEventListener('click', () => {
+                      const targetId = section.getAttribute('onclick').match(/'(.*?)'/)[1];
+                      toggleSection(targetId);
+                  });
+              });
+          });
+      </script>
+  </body>
+  </html>
+  

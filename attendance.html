@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - Great Value Academy School</title>
+    <style>
+        /* CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #45a049;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        main section {
+            margin-bottom: 2rem;
+        }
+
+        main section h2 {
+            color: #4CAF50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin-bottom: 0.5rem;
+        }
+
+        form input, form select, form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        .calendar {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calendar h2 {
+            margin-bottom: 1rem;
+        }
+
+        .calendar .month-year {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .calendar .month-year button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .calendar .month-year button:hover {
+            background-color: #45a049;
+        }
+
+        .calendar table {
+            border-collapse: collapse;
+        }
+
+        .calendar table th, .calendar table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .calendar table th {
+            background-color: #f2f2f2;
+        }
+
+        .calendar .day {
+            cursor: pointer;
+        }
+
+        .calendar .day:hover {
+            background-color: #e0e0e0;
+        }
+
+        .toggle-section {
+            cursor: pointer;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .toggle-section + div {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Great Value Academy School Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="academyweb.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="parents.html">Parents' Portal</a></li>
+                    <li><a href="grades.html">Grades</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="attendance.html" class="active">Attendance</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="view-attendance">
+                <h2>View Attendance Records</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Student Name</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>July 10, 2024</td>
+                            <td>John Doe</td>
+                            <td>Present</td>
+                        </tr>
+                        <tr>
+                            <td>July 10, 2024</td>
+                            <td>Jane Smith</td>
+                            <td>Absent</td>
+                        </tr>
+                        <tr>
+                            <td>July 11, 2024</td>
+                            <td>John Doe</td>
+                            <td>Present</td>
+                        </tr>
+                        <tr>
+                            <td>July 11, 2024</td>
+                            <td>Jane Smith</td>
+                            <td>Present</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="mark-attendance">
+                <h2>Mark Attendance</h2>
+                <form id="attendance-form">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="student-name">Student Name:</label>
+                    <input type="text" id="student-name" name="student-name" required>
+
+                    <label for="status">Status:</label>
+                    <select id="status" name="status" required>
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                        <option value="Late">Late</option>
+                        <option value="Excused">Excused</option>
+                    </select>
+
+                    <label for="remarks">Remarks:</label>
+                    <textarea id="remarks" name="remarks" rows="4" placeholder="Any additional remarks"></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+
+            <section id="attendance-statistics">
+                <h2>Attendance Statistics</h2>
+                <p><strong>Total Days:</strong> 30</p>
+                <p><strong>Days Present:</strong> 28</p>
+                <p><strong>Days Absent:</strong> 2</p>
+                <p><strong>Days Late:</strong> 0</p>
+                <p><strong>Days Excused:</strong> 0</p>
+                <p><a href="#detailed-report">View Detailed Report</a></p>
+            </section>
+
+            <section id="detailed-report">
+                <h2>Detailed Attendance Report</h2>
+                <p>Download the detailed attendance report for the selected period:</p>
+                <form id="report-form">
+                    <label for="report-period">Select Period:</label>
+                    <select id="report-period" name="report-period" required>
+                        <option value="July 2024">July 2024</option>
+                        <option value="June 2024">June 2024</option>
+                        <option value="May 2024">May 2024</option>
+                        <option value="April 2024">April 2024</option>
+                    </select>
+                    <button type="submit">Download Report</button>
+                </form>
+            </section>
+
+            <section id="attendance-calendar">
+                <h2>Attendance Calendar</h2>
+                <div class="calendar">
+                    <div class="month-year">
+                        <button id="prev-month">&lt; Previous</button>
+                        <h3 id="calendar-month">July 2024</h3>
+                        <button id="next-month">Next &gt;</button>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Sun</th>
+                                <th>Mon</th>
+                                <th>Tue</th>
+                                <th>Wed</th>
+                                <th>Thu</th>
+                                <th>Fri</th>
+                                <th>Sat</th>
+                            </tr>
+                        </thead>
+                        <tbody id="calendar-body">
+                            <!-- Calendar days will be populated here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('attendance-form');
+            const reportForm = document.getElementById('report-form');
+            const prevMonthBtn = document.getElementById('prev-month');
+            const nextMonthBtn = document.getElementById('next-month');
+            const calendarMonth = document.getElementById('calendar-month');
+            const calendarBody = document.getElementById('calendar-body');
+            let currentMonth = 7; // July
+            let currentYear = 2024;
+
+            function renderCalendar(month, year) {
+                const firstDay = new Date(year, month - 1, 1).getDay();
+                const lastDate = new Date(year, month, 0).getDate();
+                const daysInMonth = Array.from({ length: lastDate }, (_, i) => i + 1);
+                let html = '';
+                let day = 1;
+
+                for (let i = 0; i < 6; i++) {
+                    html += '<tr>';
+                    for (let j = 0; j < 7; j++) {
+                        if (i === 0 && j < firstDay) {
+                            html += '<td></td>';
+                        } else if (day > lastDate) {
+                            html += '<td></td>';
+                        } else {
+                            html += `<td class="day">${day}</td>`;
+                            day++;
+                        }
+                    }
+                    html += '</tr>';
+                }
+                calendarBody.innerHTML = html;
+                calendarMonth.textContent = `${new Date(year, month - 1).toLocaleString('default', { month: 'long' })} ${year}`;
+            }
+
+            renderCalendar(currentMonth, currentYear);
+
+            form.addEventListener('submit', function(event) {
+                const date = document.getElementById('date').value;
+                const studentName = document.getElementById('student-name').value;
+                const status = document.getElementById('status').value;
+                const remarks = document.getElementById('remarks').value;
+
+                if (date.trim() === "" || studentName.trim() === "" || status.trim() === "") {
+                    alert("Please fill in all required fields.");
+                    event.preventDefault();
+                } else {
+                    alert("Attendance marked successfully!");
+                }
+            });
+
+            reportForm.addEventListener('submit', function(event) {
+                alert("Report for the selected period is being prepared.");
+                event.preventDefault();
+            });
+
+            prevMonthBtn.addEventListener('click', function() {
+                if (currentMonth === 1) {
+                    currentMonth = 12;
+                    currentYear--;
+                } else {
+                    currentMonth--;
+                }
+                renderCalendar(currentMonth, currentYear);
+            });
+
+            nextMonthBtn.addEventListener('click', function() {
+                if (currentMonth === 12) {
+                    currentMonth = 1;
+                    currentYear++;
+                } else {
+                    currentMonth++;
+                }
+                renderCalendar(currentMonth, currentYear);
+            });
+        });
+    </script>
+</body>
+</html>

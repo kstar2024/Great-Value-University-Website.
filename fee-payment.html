@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fee Payment - Great Value Academy School</title>
+    <style>
+        /* CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #45a049;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        main section {
+            margin-bottom: 2rem;
+        }
+
+        main section h2 {
+            color: #4CAF50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin-bottom: 0.5rem;
+        }
+
+        form input, form select, form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        .toggle-section {
+            cursor: pointer;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .toggle-section + div {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .payment-form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .payment-form h3 {
+            margin-bottom: 1rem;
+        }
+
+        .payment-form p {
+            margin-bottom: 0.5rem;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Grea.png" alt="Great Value Academy School Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="academyweb.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="parents.html">Parents' Portal</a></li>
+                    <li><a href="grades.html">Grades</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="attendance.html">Attendance</a></li>
+                    <li><a href="fee-payment.html" class="active">Fee Payment</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="view-fee-details">
+                <h2>View Fee Details</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fee Type</th>
+                            <th>Amount</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Tuition Fee</td>
+                            <td>$500</td>
+                            <td>August 1, 2024</td>
+                            <td>Pending</td>
+                        </tr>
+                        <tr>
+                            <td>Library Fee</td>
+                            <td>$50</td>
+                            <td>August 1, 2024</td>
+                            <td>Paid</td>
+                        </tr>
+                        <tr>
+                            <td>Activity Fee</td>
+                            <td>$30</td>
+                            <td>August 1, 2024</td>
+                            <td>Pending</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="make-payment">
+                <h2>Make a Payment</h2>
+                <div class="payment-form">
+                    <h3>Payment Form</h3>
+                    <form id="payment-form">
+                        <label for="fee-type">Fee Type:</label>
+                        <select id="fee-type" name="fee-type" required>
+                            <option value="Tuition Fee">Tuition Fee</option>
+                            <option value="Library Fee">Library Fee</option>
+                            <option value="Activity Fee">Activity Fee</option>
+                        </select>
+
+                        <label for="amount">Amount:</label>
+                        <input type="number" id="amount" name="amount" step="0.01" required>
+
+                        <label for="payment-method">Payment Method:</label>
+                        <select id="payment-method" name="payment-method" required>
+                            <option value="Credit Card">Credit Card</option>
+                            <option value="Debit Card">Debit Card</option>
+                            <option value="Bank Transfer">Bank Transfer</option>
+                            <option value="PayPal">PayPal</option>
+                        </select>
+
+                        <label for="transaction-id">Transaction ID:</label>
+                        <input type="text" id="transaction-id" name="transaction-id" required>
+
+                        <label for="comments">Comments:</label>
+                        <textarea id="comments" name="comments" rows="4" placeholder="Any additional comments"></textarea>
+
+                        <button type="submit">Submit Payment</button>
+                    </form>
+                </div>
+            </section>
+
+            <section id="payment-history">
+                <h2>Payment History</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Fee Type</th>
+                            <th>Amount</th>
+                            <th>Payment Method</th>
+                            <th>Transaction ID</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>July 10, 2024</td>
+                            <td>Tuition Fee</td>
+                            <td>$500</td>
+                            <td>Credit Card</td>
+                            <td>1234567890</td>
+                            <td>Paid</td>
+                        </tr>
+                        <tr>
+                            <td>June 10, 2024</td>
+                            <td>Library Fee</td>
+                            <td>$50</td>
+                            <td>Debit Card</td>
+                            <td>0987654321</td>
+                            <td>Paid</td>
+                        </tr>
+                        <tr>
+                            <td>May 10, 2024</td>
+                            <td>Activity Fee</td>
+                            <td>$30</td>
+                            <td>PayPal</td>
+                            <td>1122334455</td>
+                            <td>Paid</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="fee-statistics">
+                <h2>Fee Payment Statistics</h2>
+                <p><strong>Total Fees Due:</strong> $550</p>
+                <p><strong>Fees Paid:</strong> $500</p>
+                <p><strong>Fees Pending:</strong> $50</p>
+                <p><strong>Last Payment Date:</strong> July 10, 2024</p>
+                <p><strong>Next Payment Due Date:</strong> August 1, 2024</p>
+                <p><a href="#payment-history">View Payment History</a></p>
+            </section>
+
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="toggle-section" onclick="toggleSection('faq1')">
+                    <h3>What methods of payment are accepted?</h3>
+                </div>
+                <div id="faq1">
+                    <p>We accept Credit Card, Debit Card, Bank Transfer, and PayPal.</p>
+                </div>
+                <div class="toggle-section" onclick="toggleSection('faq2')">
+                    <h3>How can I view my previous payments?</h3>
+                </div>
+                <div id="faq2">
+                    <p>You can view your previous payments in the Payment History section above.</p>
+                </div>
+                <div class="toggle-section" onclick="toggleSection('faq3')">
+                    <h3>What should I do if I encounter issues while making a payment?</h3>
+                </div>
+                <div id="faq3">
+                    <p>If you encounter issues, please contact our support team at support@greatvalueacademy.com.</p>
+                </div>
+                <div class="toggle-section" onclick="toggleSection('faq4')">
+                    <h3>Can I get a receipt for my payment?</h3>
+                </div>
+                <div id="faq4">
+                    <p>Yes, after you make a payment, you will receive a confirmation email with the payment receipt.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const paymentForm = document.getElementById('payment-form');
+            const faqSections = document.querySelectorAll('.toggle-section');
+            
+            paymentForm.addEventListener('submit', function(event) {
+                const feeType = document.getElementById('fee-type').value;
+                const amount = document.getElementById('amount').value;
+                const paymentMethod = document.getElementById('payment-method').value;
+                const transactionId = document.getElementById('transaction-id').value;
+
+                if (feeType.trim() === "" || amount.trim() === "" || paymentMethod.trim() === "" || transactionId.trim() === "") {
+                    alert("Please fill in all required fields.");
+                    event.preventDefault();
+                } else {
+                    alert("Payment submitted successfully!");
+                }
+            });
+
+            function toggleSection(id) {
+                const section = document.getElementById(id);
+                if (section.style.display === "none" || section.style.display === "") {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
+            }
+
+            faqSections.forEach(section => {
+                section.addEventListener('click', () => {
+                    const targetId = section.getAttribute('onclick').match(/'(.*?)'/)[1];
+                    toggleSection(targetId);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

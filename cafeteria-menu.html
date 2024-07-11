@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeteria Menu - Great Value Academy School</title>
+    <style>
+        /* CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #45a049;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        main section {
+            margin-bottom: 2rem;
+        }
+
+        main section h2 {
+            color: #4CAF50;
+        }
+
+        .menu-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        .menu-table th, .menu-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .menu-table th {
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        form input, form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+
+        .faq-section {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .faq-section h3 {
+            margin-top: 0;
+        }
+
+        .toggle-section {
+            cursor: pointer;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .toggle-section + div {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Grea.png" alt="Great Value Academy School Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="academyweb.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="parents.html">Parents' Portal</a></li>
+                    <li><a href="grades.html">Grades</a></li>
+                    <li><a href="assignments.html">Assignments</a></li>
+                    <li><a href="attendance.html">Attendance</a></li>
+                    <li><a href="fee-payment.html">Fee Payment</a></li>
+                    <li><a href="class-schedules.html">Class Schedules</a></li>
+                    <li><a href="extracurricular.html">Extracurricular Activities</a></li>
+                    <li><a href="meeting-schedule.html">Meeting Schedule</a></li>
+                    <li><a href="health-records.html">Health Records</a></li>
+                    <li><a href="school-news.html">School News</a></li>
+                    <li><a href="cafeteria-menu.html" class="active">Cafeteria Menu</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="weekly-menu">
+                <h2>Weekly Cafeteria Menu</h2>
+                <p>Check out our weekly menu to see what delicious meals are being served at Great Value Academy’s cafeteria!</p>
+                <table class="menu-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Breakfast</th>
+                            <th>Lunch</th>
+                            <th>Dinner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monday</td>
+                            <td>Fruit Smoothie & Whole Wheat Toast</td>
+                            <td>Chicken Nuggets, Mashed Potatoes, Steamed Broccoli</td>
+                            <td>Pasta Primavera</td>
+                        </tr>
+                        <tr>
+                            <td>Tuesday</td>
+                            <td>Scrambled Eggs & Bacon</td>
+                            <td>Beef Tacos, Mexican Rice, Corn</td>
+                            <td>Chicken Alfredo</td>
+                        </tr>
+                        <tr>
+                            <td>Wednesday</td>
+                            <td>Yogurt Parfait with Granola</td>
+                            <td>Spaghetti & Meatballs, Garlic Bread, Garden Salad</td>
+                            <td>Vegetable Stir Fry</td>
+                        </tr>
+                        <tr>
+                            <td>Thursday</td>
+                            <td>Bagels with Cream Cheese</td>
+                            <td>BBQ Chicken, Baked Beans, Coleslaw</td>
+                            <td>Beef Stir Fry with Rice</td>
+                        </tr>
+                        <tr>
+                            <td>Friday</td>
+                            <td>Pancakes with Syrup</td>
+                            <td>Fish Sticks, French Fries, Mixed Vegetables</td>
+                            <td>Cheese Pizza</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="nutritional-info">
+                <h2>Nutritional Information</h2>
+                <p>Our cafeteria strives to provide nutritious and balanced meals for all students. For detailed nutritional information, please refer to the links below:</p>
+                <ul>
+                    <li><a href="nutritional-info-breakfast.pdf" target="_blank">Breakfast Nutritional Information</a></li>
+                    <li><a href="nutritional-info-lunch.pdf" target="_blank">Lunch Nutritional Information</a></li>
+                    <li><a href="nutritional-info-dinner.pdf" target="_blank">Dinner Nutritional Information</a></li>
+                </ul>
+            </section>
+
+            <section id="feedback-form">
+                <h2>We Value Your Feedback</h2>
+                <p>Your feedback helps us improve our cafeteria services. Please use the form below to share your thoughts and suggestions.</p>
+                <form id="feedback-form">
+                    <label for="feedback-name">Name:</label>
+                    <input type="text" id="feedback-name" name="feedback-name" required>
+
+                    <label for="feedback-email">Email:</label>
+                    <input type="email" id="feedback-email" name="feedback-email" required>
+
+                    <label for="feedback-message">Feedback:</label>
+                    <textarea id="feedback-message" name="feedback-message" rows="4" required></textarea>
+
+                    <button type="submit">Submit Feedback</button>
+                </form>
+            </section>
+
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-section">
+                    <div class="toggle-section" onclick="toggleSection('faq1')">
+                        <h3>How can I view the weekly menu?</h3>
+                    </div>
+                    <div id="faq1">
+                        <p>The weekly menu is available on this page. You can also download the PDF versions of the nutritional information for more details.</p>
+                    </div>
+                    <div class="toggle-section" onclick="toggleSection('faq2')">
+                        <h3>Can I request a specific meal for my child?</h3>
+                    </div>
+                    <div id="faq2">
+                        <p>Meal requests are not accommodated on an individual basis. However, if you have dietary restrictions or allergies, please contact the cafeteria manager to discuss options.</p>
+                    </div>
+                    <div class="toggle-section" onclick="toggleSection('faq3')">
+                        <h3>How do I provide feedback about the cafeteria services?</h3>
+                    </div>
+                    <div id="faq3">
+                        <p>You can provide feedback using the form above. We value your input and use it to improve our services.</p>
+                    </div>
+                    <div class="toggle-section" onclick="toggleSection('faq4')">
+                        <h3>What are the cafeteria's operating hours?</h3>
+                    </div>
+                    <div id="faq4">
+                        <p>The cafeteria is open from 7:30 AM to 2:30 PM on weekdays. Breakfast is served from 7:30 AM to 8:00 AM, lunch from 11:00 AM to 1:00 PM, and dinner from 1:30 PM to 2:30 PM.</p>
+                    </div>
+                    <div class="toggle-section" onclick="toggleSection('faq5')">
+                        <h3>Are there vegetarian or gluten-free options available?</h3>
+                    </div>
+                    <div id="faq5">
+                        <p>Yes, we offer vegetarian and gluten-free meal options. Please inform the cafeteria staff of any dietary needs or restrictions when you visit.</p>
+                    </div>
+                    <div class="toggle-section" onclick="toggleSection('faq6')">
+                        <h3>How can I get in touch with the cafeteria manager?</h3>
+                    </div>
+                    <div id="faq6">
+                        <p>You can reach the cafeteria manager through the contact form on the <a href="contact.html">Contact</a> page or by calling the cafeteria directly during operating hours.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const feedbackForm = document.getElementById('feedback-form');
+            const faqSections = document.querySelectorAll('.toggle-section');
+
+            feedbackForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Implement form submission logic here
+                alert('Feedback submission functionality is not yet implemented.');
+            });
+
+            function toggleSection(id) {
+                const section = document.getElementById(id);
+                if (section.style.display === "none" || section.style.display === "") {
+                    section.style.display = "block";
+                } else {
+                    section.style.display = "none";
+                }
+            }
+
+            faqSections.forEach(section => {
+                section.addEventListener('click', () => {
+                    const targetId = section.getAttribute('onclick').match(/'(.*?)'/)[1];
+                    toggleSection(targetId);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

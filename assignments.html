@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignments - Great Value Academy School</title>
+    <style>
+        /* CSS */
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem 0;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        header .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: #45a049;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        main section {
+            margin-bottom: 2rem;
+        }
+
+        main section h2 {
+            color: #4CAF50;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+        }
+
+        footer {
+            background-color: #f1f1f1;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        footer ul li a:hover {
+            text-decoration: underline;
+        }
+
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .toggle-section {
+            cursor: pointer;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 5px;
+        }
+
+        .toggle-section + div {
+            display: none;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin-bottom: 0.5rem;
+        }
+
+        form input, form textarea, form select {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="Grea.png" alt="Great Value Academy School Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="academyweb.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="academics.html">Academics</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="parents.html">Parents' Portal</a></li>
+                    <li><a href="grades.html">Grades</a></li>
+                    <li><a href="assignments.html" class="active">Assignments</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section id="current-assignments">
+                <h2>Current Assignments</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Assignment</th>
+                            <th>Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>Algebra Worksheet</td>
+                            <td>July 15, 2024</td>
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td>Lab Report on Plant Cells</td>
+                            <td>July 18, 2024</td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td>Essay on Shakespeare's Works</td>
+                            <td>July 20, 2024</td>
+                        </tr>
+                        <tr>
+                            <td>History</td>
+                            <td>Research on World War II</td>
+                            <td>July 22, 2024</td>
+                        </tr>
+                        <tr>
+                            <td>Physical Education</td>
+                            <td>Fitness Log</td>
+                            <td>July 25, 2024</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="assignment-guidelines">
+                <h2>Assignment Guidelines</h2>
+                <div class="toggle-section">Mathematics</div>
+                <div>Complete the worksheet and ensure all steps are shown. Submit in PDF format.</div>
+                <div class="toggle-section">Science</div>
+                <div>Write a detailed lab report including all observations and results. Submit in DOCX format.</div>
+                <div class="toggle-section">English</div>
+                <div>Write a 1500-word essay on Shakespeare's works, focusing on themes and character development. Submit in DOCX format.</div>
+                <div class="toggle-section">History</div>
+                <div>Research and write a report on World War II, including major events and their impacts. Submit in PDF format.</div>
+                <div class="toggle-section">Physical Education</div>
+                <div>Maintain a fitness log for two weeks, recording daily activities and exercises. Submit in XLSX format.</div>
+            </section>
+
+            <section id="past-assignments">
+                <h2>Past Assignments</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Assignment</th>
+                            <th>Grade</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mathematics</td>
+                            <td>Geometry Worksheet</td>
+                            <td>A</td>
+                            <td>Excellent work</td>
+                        </tr>
+                        <tr>
+                            <td>Science</td>
+                            <td>Physics Lab Report</td>
+                            <td>B+</td>
+                            <td>Good analysis</td>
+                        </tr>
+                        <tr>
+                            <td>English</td>
+                            <td>Essay on Modern Poetry</td>
+                            <td>A-</td>
+                            <td>Very insightful</td>
+                        </tr>
+                        <tr>
+                            <td>History</td>
+                            <td>Research on Ancient Civilizations</td>
+                            <td>B</td>
+                            <td>Well-researched</td>
+                        </tr>
+                        <tr>
+                            <td>Physical Education</td>
+                            <td>Weekly Fitness Log</td>
+                            <td>A</td>
+                            <td>Consistent effort</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="submit-assignment">
+                <h2>Submit Assignment</h2>
+                <form id="assignment-form">
+                    <label for="student-name">Student Name:</label>
+                    <input type="text" id="student-name" name="student-name" required>
+
+                    <label for="student-id">Student ID:</label>
+                    <input type="text" id="student-id" name="student-id" required>
+
+                    <label for="subject">Subject:</label>
+                    <select id="subject" name="subject" required>
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Science">Science</option>
+                        <option value="English">English</option>
+                        <option value="History">History</option>
+                        <option value="Physical Education">Physical Education</option>
+                    </select>
+
+                    <label for="assignment-title">Assignment Title:</label>
+                    <input type="text" id="assignment-title" name="assignment-title" required>
+
+                    <label for="assignment-file">Upload Assignment:</label>
+                    <input type="file" id="assignment-file" name="assignment-file" required>
+
+                    <label for="comments">Comments:</label>
+                    <textarea id="comments" name="comments" rows="4"></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+            <ul>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+                <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('assignment-form');
+
+            form.addEventListener('submit', function(event) {
+                const studentName = document.getElementById('student-name').value;
+                const studentID = document.getElementById('student-id').value;
+                const assignmentTitle = document.getElementById('assignment-title').value;
+                const assignmentFile = document.getElementById('assignment-file').value;
+
+                if (studentName.trim() === "" || studentID.trim() === "" || assignmentTitle.trim() === "" || assignmentFile.trim() === "") {
+                    alert("Please fill in all required fields.");
+                    event.preventDefault();
+                } else {
+                    alert("Assignment submitted successfully!");
+                }
+            });
+
+            const toggles = document.querySelectorAll('.toggle-section');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    const content = this.nextElementSibling;
+                    content.style.display = content.style.display === "none" ? "block" : "none";
+                });
+            });
+        });
+    </script>
+</body>
+</html>
