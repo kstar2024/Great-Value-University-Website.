@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenders | Great Value Academy School</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline styles for demonstration purposes */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        header {
+            background: #0044cc;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background: #f4f4f4;
+        }
+        footer {
+            background: #f4f4f4;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .search-bar, .filter-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input, .filter-bar select {
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+        }
+        .tender-link {
+            color: #0044cc;
+            text-decoration: none;
+        }
+        .tender-link:hover {
+            text-decoration: underline;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .form-section {
+            margin-top: 30px;
+        }
+        .form-section form {
+            display: flex;
+            flex-direction: column;
+        }
+        .form-section label {
+            margin-top: 10px;
+        }
+        .form-section input, .form-section textarea {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+        }
+        .form-section button {
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #0044cc;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .form-section button:hover {
+            background-color: #0033a0;
+        }
+        .notification {
+            background: #dff0d8;
+            color: #3c763d;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        .notification.error {
+            background: #f2dede;
+            color: #a94442;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Great Value Academy School</h1>
+        <nav>
+            <ul>
+                <li><a href="academyweb.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="academics.html">Academics</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="tenderss.html">Tenders</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Current Tenders</h2>
+            <p>Welcome to the Tenders page for Great Value Academy School. Here you will find information about our current tender opportunities and how to apply.</p>
+            
+            <!-- Display Notifications -->
+            <div id="notification" class="notification" style="display: none;"></div>
+            
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search tenders...">
+                <button onclick="searchTenders()">Search</button>
+            </div>
+            
+            <div class="filter-bar">
+                <label for="category">Filter by Category:</label>
+                <select id="category" onchange="filterTenders()">
+                    <option value="">All Categories</option>
+                    <option value="IT">IT Equipment</option>
+                    <option value="Uniforms">Uniforms</option>
+                    <option value="Services">Canteen Services</option>
+                </select>
+            </div>
+
+            <table id="tenderTable">
+                <thead>
+                    <tr>
+                        <th>Tender Title</th>
+                        <th>Description</th>
+                        <th>Submission Deadline</th>
+                        <th>More Details</th>
+                        <th>Download Tender Document</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-category="IT">
+                        <td>IT Equipment Supply</td>
+                        <td>Supply and installation of IT equipment for the new computer lab.</td>
+                        <td>August 15, 2024</td>
+                        <td><a href="#" onclick="showDetails('it_equipment')">View Details</a></td>
+                        <td><a href="documents/tender_it_equipment.pdf" target="_blank">Download</a></td>
+                    </tr>
+                    <tr data-category="Uniforms">
+                        <td>School Uniforms</td>
+                        <td>Provision of school uniforms for the academic year 2024-2025.</td>
+                        <td>September 1, 2024</td>
+                        <td><a href="#" onclick="showDetails('school_uniforms')">View Details</a></td>
+                        <td><a href="documents/tender_school_uniforms.pdf" target="_blank">Download</a></td>
+                    </tr>
+                    <tr data-category="Services">
+                        <td>Canteen Services</td>
+                        <td>Provision of canteen services including meal preparation and management.</td>
+                        <td>September 15, 2024</td>
+                        <td><a href="#" onclick="showDetails('canteen_services')">View Details</a></td>
+                        <td><a href="documents/tender_canteen_services.pdf" target="_blank">Download</a></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <section class="form-section">
+                <h2>Submit Your Tender</h2>
+                <p>If you would like to submit a tender, please fill out the form below:</p>
+                <form id="tenderForm" action="submit_tender.php" method="post" onsubmit="return validateForm()">
+                    <label for="tenderTitle">Tender Title:</label>
+                    <input type="text" id="tenderTitle" name="tenderTitle" required>
+                    
+                    <label for="companyName">Company Name:</label>
+                    <input type="text" id="companyName" name="companyName" required>
+                    
+                    <label for="contactEmail">Contact Email:</label>
+                    <input type="email" id="contactEmail" name="contactEmail" required>
+                    
+                    <label for="tenderDescription">Tender Description:</label>
+                    <textarea id="tenderDescription" name="tenderDescription" rows="4" required></textarea>
+                    
+                    <button type="submit">Submit Tender</button>
+                </form>
+            </section>
+
+            <section>
+                <h2>Past Tenders</h2>
+                <p>Here you can find information about our past tender opportunities.</p>
+                <ul>
+                    <li><a href="documents/past_tender1.pdf" target="_blank">Past Tender 1 - Equipment Maintenance</a></li>
+                    <li><a href="documents/past_tender2.pdf" target="_blank">Past Tender 2 - Building Renovation</a></li>
+                    <li><a href="documents/past_tender3.pdf" target="_blank">Past Tender 3 - New Library Books</a></li>
+               
+                  </ul>
+                </section>
+            </section>
+        </main>
+    
+        <footer>
+            <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+        </footer>
+    
+        <!-- Modal for Tender Details -->
+        <div id="tenderModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="modalTitle">Tender Title</h2>
+                <p id="modalDescription">Tender Description</p>
+                <p><strong>Submission Deadline:</strong> <span id="modalDeadline"></span></p>
+                <a id="modalDownload" href="#" target="_blank">Download Tender Document</a>
+            </div>
+        </div>
+    
+        <!-- Modal for User Login -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeLoginModal()">&times;</span>
+                <h2>Login</h2>
+                <form id="loginForm" action="login.php" method="post" onsubmit="return validateLogin()">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="loginEmail" required>
+                    
+                    <label for="loginPassword">Password:</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required>
+                    
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+    
+        <script>
+            // JavaScript for search and filter functionality
+            function searchTenders() {
+                const searchQuery = document.getElementById('search').value.toLowerCase();
+                const rows = document.querySelectorAll('#tenderTable tbody tr');
+    
+                rows.forEach(row => {
+                    const title = row.children[0].textContent.toLowerCase();
+                    const description = row.children[1].textContent.toLowerCase();
+    
+                    if (title.includes(searchQuery) || description.includes(searchQuery)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+    
+            function filterTenders() {
+                const selectedCategory = document.getElementById('category').value;
+                const rows = document.querySelectorAll('#tenderTable tbody tr');
+    
+                rows.forEach(row => {
+                    const category = row.getAttribute('data-category');
+    
+                    if (selectedCategory === '' || selectedCategory === category) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            }
+    
+            function showDetails(tenderId) {
+                const details = {
+                    'it_equipment': {
+                        title: 'IT Equipment Supply',
+                        description: 'Supply and installation of IT equipment for the new computer lab.',
+                        deadline: 'August 15, 2024',
+                        document: 'documents/tender_it_equipment.pdf'
+                    },
+                    'school_uniforms': {
+                        title: 'School Uniforms',
+                        description: 'Provision of school uniforms for the academic year 2024-2025.',
+                        deadline: 'September 1, 2024',
+                        document: 'documents/tender_school_uniforms.pdf'
+                    },
+                    'canteen_services': {
+                        title: 'Canteen Services',
+                        description: 'Provision of canteen services including meal preparation and management.',
+                        deadline: 'September 15, 2024',
+                        document: 'documents/tender_canteen_services.pdf'
+                    }
+                };
+    
+                const tender = details[tenderId];
+                document.getElementById('modalTitle').textContent = tender.title;
+                document.getElementById('modalDescription').textContent = tender.description;
+                document.getElementById('modalDeadline').textContent = tender.deadline;
+                document.getElementById('modalDownload').href = tender.document;
+    
+                document.getElementById('tenderModal').style.display = 'block';
+            }
+    
+            function closeModal() {
+                document.getElementById('tenderModal').style.display = 'none';
+            }
+    
+            function openLoginModal() {
+                document.getElementById('loginModal').style.display = 'block';
+            }
+    
+            function closeLoginModal() {
+                document.getElementById('loginModal').style.display = 'none';
+            }
+    
+            function validateForm() {
+                // Perform form validation
+                // Example validation: Check if all fields are filled
+                const title = document.getElementById('tenderTitle').value.trim();
+                const company = document.getElementById('companyName').value.trim();
+                const email = document.getElementById('contactEmail').value.trim();
+                const description = document.getElementById('tenderDescription').value.trim();
+    
+                if (title === '' || company === '' || email === '' || description === '') {
+                    showNotification('Please fill out all fields.', 'error');
+                    return false;
+                }
+    
+                return true;
+            }
+    
+            function validateLogin() {
+                // Perform login validation
+                // Example validation: Check if fields are filled
+                const email = document.getElementById('loginEmail').value.trim();
+                const password = document.getElementById('loginPassword').value.trim();
+    
+                if (email === '' || password === '') {
+                    showNotification('Please enter both email and password.', 'error');
+                    return false;
+                }
+    
+                return true;
+            }
+    
+            function showNotification(message, type) {
+                const notification = document.getElementById('notification');
+                notification.textContent = message;
+                notification.style.display = 'block';
+                notification.className = 'notification ' + (type === 'error' ? 'error' : '');
+            }
+    
+            // Automatically close notifications after 5 seconds
+            setTimeout(() => {
+                document.getElementById('notification').style.display = 'none';
+            }, 5000);
+            
+            window.onclick = function(event) {
+                if (event.target == document.getElementById('tenderModal')) {
+                    closeModal();
+                } else if (event.target == document.getElementById('loginModal')) {
+                    closeLoginModal();
+                }
+            }
+        </script>
+    </body>
+    </html>
+    
