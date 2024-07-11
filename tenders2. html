@@ -146,7 +146,7 @@
         <h1>Great Value Academy School</h1>
         <nav>
             <ul>
-                <li><a href="Academyweb.html">Home</a></li>
+                <li><a href="academyweb.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="academics.html">Academics</a></li>
                 <li><a href="admissions.html">Admissions</a></li>
@@ -243,168 +243,169 @@
                     <li><a href="documents/past_tender2.pdf" target="_blank">Past Tender 2 - Building Renovation</a></li>
                     <li><a href="documents/past_tender3.pdf" target="_blank">Past Tender 3 - New Library Books</a></li>
                
-                </ul>
+                  </ul>
+                </section>
             </section>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
-    </footer>
-
-    <!-- Modal for Tender Details -->
-    <div id="tenderModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2 id="modalTitle">Tender Title</h2>
-            <p id="modalDescription">Tender Description</p>
-            <p><strong>Submission Deadline:</strong> <span id="modalDeadline"></span></p>
-            <a id="modalDownload" href="#" target="_blank">Download Tender Document</a>
+        </main>
+    
+        <footer>
+            <p>&copy; 2024 Great Value Academy School. All rights reserved.</p>
+        </footer>
+    
+        <!-- Modal for Tender Details -->
+        <div id="tenderModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="modalTitle">Tender Title</h2>
+                <p id="modalDescription">Tender Description</p>
+                <p><strong>Submission Deadline:</strong> <span id="modalDeadline"></span></p>
+                <a id="modalDownload" href="#" target="_blank">Download Tender Document</a>
+            </div>
         </div>
-    </div>
-
-    <!-- Modal for User Login -->
-    <div id="loginModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeLoginModal()">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm" action="login.php" method="post" onsubmit="return validateLogin()">
-                <label for="loginEmail">Email:</label>
-                <input type="email" id="loginEmail" name="loginEmail" required>
-                
-                <label for="loginPassword">Password:</label>
-                <input type="password" id="loginPassword" name="loginPassword" required>
-                
-                <button type="submit">Login</button>
-            </form>
+    
+        <!-- Modal for User Login -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeLoginModal()">&times;</span>
+                <h2>Login</h2>
+                <form id="loginForm" action="login.php" method="post" onsubmit="return validateLogin()">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" name="loginEmail" required>
+                    
+                    <label for="loginPassword">Password:</label>
+                    <input type="password" id="loginPassword" name="loginPassword" required>
+                    
+                    <button type="submit">Login</button>
+                </form>
+            </div>
         </div>
-    </div>
-
-    <script>
-        // JavaScript for search and filter functionality
-        function searchTenders() {
-            const searchQuery = document.getElementById('search').value.toLowerCase();
-            const rows = document.querySelectorAll('#tenderTable tbody tr');
-
-            rows.forEach(row => {
-                const title = row.children[0].textContent.toLowerCase();
-                const description = row.children[1].textContent.toLowerCase();
-
-                if (title.includes(searchQuery) || description.includes(searchQuery)) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-
-        function filterTenders() {
-            const selectedCategory = document.getElementById('category').value;
-            const rows = document.querySelectorAll('#tenderTable tbody tr');
-
-            rows.forEach(row => {
-                const category = row.getAttribute('data-category');
-
-                if (selectedCategory === '' || selectedCategory === category) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-
-        function showDetails(tenderId) {
-            const details = {
-                'it_equipment': {
-                    title: 'IT Equipment Supply',
-                    description: 'Supply and installation of IT equipment for the new computer lab.',
-                    deadline: 'August 15, 2024',
-                    document: 'documents/tender_it_equipment.pdf'
-                },
-                'school_uniforms': {
-                    title: 'School Uniforms',
-                    description: 'Provision of school uniforms for the academic year 2024-2025.',
-                    deadline: 'September 1, 2024',
-                    document: 'documents/tender_school_uniforms.pdf'
-                },
-                'canteen_services': {
-                    title: 'Canteen Services',
-                    description: 'Provision of canteen services including meal preparation and management.',
-                    deadline: 'September 15, 2024',
-                    document: 'documents/tender_canteen_services.pdf'
-                }
-            };
-
-            const tender = details[tenderId];
-            document.getElementById('modalTitle').textContent = tender.title;
-            document.getElementById('modalDescription').textContent = tender.description;
-            document.getElementById('modalDeadline').textContent = tender.deadline;
-            document.getElementById('modalDownload').href = tender.document;
-
-            document.getElementById('tenderModal').style.display = 'block';
-        }
-
-        function closeModal() {
-            document.getElementById('tenderModal').style.display = 'none';
-        }
-
-        function openLoginModal() {
-            document.getElementById('loginModal').style.display = 'block';
-        }
-
-        function closeLoginModal() {
-            document.getElementById('loginModal').style.display = 'none';
-        }
-
-        function validateForm() {
-            // Perform form validation
-            // Example validation: Check if all fields are filled
-            const title = document.getElementById('tenderTitle').value.trim();
-            const company = document.getElementById('companyName').value.trim();
-            const email = document.getElementById('contactEmail').value.trim();
-            const description = document.getElementById('tenderDescription').value.trim();
-
-            if (title === '' || company === '' || email === '' || description === '') {
-                showNotification('Please fill out all fields.', 'error');
-                return false;
+    
+        <script>
+            // JavaScript for search and filter functionality
+            function searchTenders() {
+                const searchQuery = document.getElementById('search').value.toLowerCase();
+                const rows = document.querySelectorAll('#tenderTable tbody tr');
+    
+                rows.forEach(row => {
+                    const title = row.children[0].textContent.toLowerCase();
+                    const description = row.children[1].textContent.toLowerCase();
+    
+                    if (title.includes(searchQuery) || description.includes(searchQuery)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
             }
-
-            return true;
-        }
-
-        function validateLogin() {
-            // Perform login validation
-            // Example validation: Check if fields are filled
-            const email = document.getElementById('loginEmail').value.trim();
-            const password = document.getElementById('loginPassword').value.trim();
-
-            if (email === '' || password === '') {
-                showNotification('Please enter both email and password.', 'error');
-                return false;
+    
+            function filterTenders() {
+                const selectedCategory = document.getElementById('category').value;
+                const rows = document.querySelectorAll('#tenderTable tbody tr');
+    
+                rows.forEach(row => {
+                    const category = row.getAttribute('data-category');
+    
+                    if (selectedCategory === '' || selectedCategory === category) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
             }
-
-            return true;
-        }
-
-        function showNotification(message, type) {
-            const notification = document.getElementById('notification');
-            notification.textContent = message;
-            notification.style.display = 'block';
-            notification.className = 'notification ' + (type === 'error' ? 'error' : '');
-        }
-
-        // Automatically close notifications after 5 seconds
-        setTimeout(() => {
-            document.getElementById('notification').style.display = 'none';
-        }, 5000);
-        
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('tenderModal')) {
-                closeModal();
-            } else if (event.target == document.getElementById('loginModal')) {
-                closeLoginModal();
+    
+            function showDetails(tenderId) {
+                const details = {
+                    'it_equipment': {
+                        title: 'IT Equipment Supply',
+                        description: 'Supply and installation of IT equipment for the new computer lab.',
+                        deadline: 'August 15, 2024',
+                        document: 'documents/tender_it_equipment.pdf'
+                    },
+                    'school_uniforms': {
+                        title: 'School Uniforms',
+                        description: 'Provision of school uniforms for the academic year 2024-2025.',
+                        deadline: 'September 1, 2024',
+                        document: 'documents/tender_school_uniforms.pdf'
+                    },
+                    'canteen_services': {
+                        title: 'Canteen Services',
+                        description: 'Provision of canteen services including meal preparation and management.',
+                        deadline: 'September 15, 2024',
+                        document: 'documents/tender_canteen_services.pdf'
+                    }
+                };
+    
+                const tender = details[tenderId];
+                document.getElementById('modalTitle').textContent = tender.title;
+                document.getElementById('modalDescription').textContent = tender.description;
+                document.getElementById('modalDeadline').textContent = tender.deadline;
+                document.getElementById('modalDownload').href = tender.document;
+    
+                document.getElementById('tenderModal').style.display = 'block';
             }
-        }
-    </script>
-</body>
-</html>
+    
+            function closeModal() {
+                document.getElementById('tenderModal').style.display = 'none';
+            }
+    
+            function openLoginModal() {
+                document.getElementById('loginModal').style.display = 'block';
+            }
+    
+            function closeLoginModal() {
+                document.getElementById('loginModal').style.display = 'none';
+            }
+    
+            function validateForm() {
+                // Perform form validation
+                // Example validation: Check if all fields are filled
+                const title = document.getElementById('tenderTitle').value.trim();
+                const company = document.getElementById('companyName').value.trim();
+                const email = document.getElementById('contactEmail').value.trim();
+                const description = document.getElementById('tenderDescription').value.trim();
+    
+                if (title === '' || company === '' || email === '' || description === '') {
+                    showNotification('Please fill out all fields.', 'error');
+                    return false;
+                }
+    
+                return true;
+            }
+    
+            function validateLogin() {
+                // Perform login validation
+                // Example validation: Check if fields are filled
+                const email = document.getElementById('loginEmail').value.trim();
+                const password = document.getElementById('loginPassword').value.trim();
+    
+                if (email === '' || password === '') {
+                    showNotification('Please enter both email and password.', 'error');
+                    return false;
+                }
+    
+                return true;
+            }
+    
+            function showNotification(message, type) {
+                const notification = document.getElementById('notification');
+                notification.textContent = message;
+                notification.style.display = 'block';
+                notification.className = 'notification ' + (type === 'error' ? 'error' : '');
+            }
+    
+            // Automatically close notifications after 5 seconds
+            setTimeout(() => {
+                document.getElementById('notification').style.display = 'none';
+            }, 5000);
+            
+            window.onclick = function(event) {
+                if (event.target == document.getElementById('tenderModal')) {
+                    closeModal();
+                } else if (event.target == document.getElementById('loginModal')) {
+                    closeLoginModal();
+                }
+            }
+        </script>
+    </body>
+    </html>
+    
